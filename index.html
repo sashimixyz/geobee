@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAC Geography Bee Prep — Red Set 2026–27</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0f2b3c;
+  --teal: #1a4a5e;
+  --teal-light: #2a6a82;
+  --gold: #e8a838;
+  --gold-dim: #c4882a;
+  --sand: #f5efe6;
+  --sand-dark: #e8dfd2;
+  --green: #2d8f5e;
+  --green-light: #d4eddf;
+  --red: #c0392b;
+  --red-light: #f8d7da;
+  --text: #1a1a1a;
+  --text-muted: #5a6a72;
+  --white: #ffffff;
+  --radius: 10px;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--sand);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── Header ─── */
+.site-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+  color: var(--white);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -30%; left: -10%;
+  width: 120%; height: 160%;
+  background: radial-gradient(ellipse at 20% 80%, rgba(232,168,56,0.12) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, rgba(42,106,130,0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+.site-header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 400;
+  position: relative;
+  letter-spacing: -0.02em;
+}
+.site-header h1 span { color: var(--gold); }
+.site-header p {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-top: 0.3rem;
+  position: relative;
+}
+
+/* ─── Navigation ─── */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  background: var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tab-nav button {
+  flex: 1;
+  min-width: max-content;
+  padding: 0.8rem 1rem;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+}
+.tab-nav button:hover { color: rgba(255,255,255,0.8); }
+.tab-nav button.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  background: rgba(232,168,56,0.08);
+}
+
+/* ─── Main content ─── */
+.main-content { max-width: 860px; margin: 0 auto; padding: 1.5rem; }
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* ─── Region cards (Learn tab) ─── */
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.region-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border: 2px solid transparent;
+}
+.region-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15,43,60,0.1);
+}
+.region-card.active {
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px rgba(232,168,56,0.15);
+}
+.region-card .emoji { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
+.region-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
+.region-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+/* ─── Topic detail ─── */
+.topic-detail {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.topic-detail h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.fact-card {
+  background: var(--sand);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
+  border-left: 4px solid var(--gold);
+}
+.fact-card h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.fact-card p { font-size: 0.92rem; line-height: 1.55; }
+.fact-card .mnemonic {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  background: rgba(232,168,56,0.1);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: var(--gold-dim);
+  font-weight: 600;
+}
+.map-embed {
+  width: 100%;
+  height: 280px;
+  border-radius: 8px;
+  border: 1px solid var(--sand-dark);
+  margin: 0.8rem 0;
+}
+.img-credit {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+.tag {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* ─── Quiz styles ─── */
+.quiz-container { max-width: 700px; margin: 0 auto; }
+.question-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.question-box .q-number {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--teal-light);
+  margin-bottom: 0.5rem;
+}
+.question-box .q-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--navy);
+  font-weight: 500;
+}
+.options-list { list-style: none; }
+.options-list li {
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  border: 2px solid var(--sand-dark);
+  cursor: pointer;
+  font-size: 0.92rem;
+  transition: all 0.15s;
+}
+.options-list li:hover:not(.disabled) {
+  border-color: var(--teal-light);
+  background: rgba(26,74,94,0.04);
+}
+.options-list li.selected { border-color: var(--teal); background: rgba(26,74,94,0.06); }
+.options-list li.correct { border-color: var(--green); background: var(--green-light); }
+.options-list li.wrong { border-color: var(--red); background: var(--red-light); }
+.options-list li.disabled { cursor: default; opacity: 0.7; }
+.options-list li.disabled.answer-reveal { opacity: 1; border-color: var(--green); background: var(--green-light); }
+
+.explanation {
+  margin-top: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: var(--sand);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.3rem;
+  border-radius: 8px;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-primary { background: var(--teal); color: var(--white); }
+.btn-primary:hover { background: var(--navy); }
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-gold:hover { background: var(--gold-dim); color: var(--white); }
+.btn-outline { background: transparent; border: 2px solid var(--teal); color: var(--teal); }
+.btn-outline:hover { background: var(--teal); color: var(--white); }
+
+.score-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.2rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  margin-bottom: 1.2rem;
+}
+.score-bar .score-text { font-weight: 700; color: var(--navy); font-size: 1rem; }
+.score-bar .score-detail { font-size: 0.82rem; color: var(--text-muted); }
+
+/* ─── Buzzer mode ─── */
+.buzzer-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+}
+.buzzer-clue {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--navy);
+  min-height: 120px;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.buzzer-clue .revealed { color: var(--text); }
+.buzzer-clue .hidden { color: transparent; user-select: none; }
+.buzzer-clue .upcoming { color: var(--sand-dark); }
+
+.timer-bar {
+  height: 6px;
+  background: var(--sand-dark);
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.timer-bar .fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s linear;
+}
+.timer-bar .fill.green { background: var(--green); }
+.timer-bar .fill.gold { background: var(--gold); }
+.timer-bar .fill.red { background: var(--red); }
+
+.buzz-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--red);
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px rgba(192,57,43,0.3);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.buzz-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(192,57,43,0.4); }
+.buzz-btn:active { transform: scale(0.95); }
+.buzz-btn:disabled { opacity: 0.4; cursor: default; transform: none; box-shadow: none; }
+
+.answer-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.answer-input input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 2px solid var(--sand-dark);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+}
+.answer-input input:focus { border-color: var(--teal); }
+
+.result-msg {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.result-msg.correct { background: var(--green-light); color: var(--green); }
+.result-msg.wrong { background: var(--red-light); color: var(--red); }
+
+.difficulty-select {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Progress dots ─── */
+.progress-dots {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.progress-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--sand-dark);
+}
+.progress-dots .dot.correct { background: var(--green); }
+.progress-dots .dot.wrong { background: var(--red); }
+.progress-dots .dot.current { background: var(--gold); box-shadow: 0 0 0 3px rgba(232,168,56,0.3); }
+
+/* ─── Further study section ─── */
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.6rem;
+}
+.term-chip {
+  background: var(--white);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.15s;
+}
+.term-chip:hover { border-color: var(--gold); }
+.term-chip.expanded {
+  grid-column: 1 / -1;
+  border-color: var(--teal);
+  background: var(--sand);
+}
+.term-chip .term-desc {
+  margin-top: 0.5rem;
+  font-size: 0.84rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.hidden { display: none !important; }
+
+/* ─── Responsive ─── */
+@media (max-width: 600px) {
+  .main-content { padding: 1rem; }
+  .region-grid { grid-template-columns: 1fr; }
+  .tab-nav button { font-size: 0.75rem; padding: 0.7rem 0.6rem; }
+  .buzzer-box { padding: 1.2rem; }
+  .buzz-btn { width: 90px; height: 90px; font-size: 0.85rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>IAC <span>Geography Bee</span> Prep</h1>
+  <p>Red Set Study Guide — 2026–27 Regional Semifinals</p>
+</header>
+
+<nav class="tab-nav" id="tabNav">
+  <button class="active" data-tab="learn">📍 Learn</button>
+  <button data-tab="simple">✏️ Simple Quiz</button>
+  <button data-tab="complex">🧠 Hard Quiz</button>
+  <button data-tab="buzzer">🔴 Buzzer</button>
+</nav>
+
+<main class="main-content" id="mainContent"></main>
+
+<script>
+// ══════════════════════════════════════════
+//  DATA: Study Guide Topics by Region
+// ══════════════════════════════════════════
+
+const REGIONS = [
+  {
+    id: 'africa',
+    name: 'Africa',
+    emoji: '🌍',
+    desc: '3 topics — rivers, mountains, and more',
+    topics: [
+      {
+        title: 'The Niger River',
+        facts: [
+          { label: 'Key Fact', text: "The Niger is Africa's third-longest river (after the Nile and the Congo). It shares its name with the country Niger.", extra: "It flows through Guinea, Mali, Niger, and Nigeria — forming a distinctive boomerang curve through West Africa." },
+          { label: 'Geography', text: "The Niger's Inner Delta in Mali is one of the largest wetlands in the world — it floods seasonally and supports farming, fishing, and wildlife in the middle of the Sahel." },
+          { label: 'Culture', text: "The ancient city of Timbuktu sits near the Niger River and was once a major center of Islamic scholarship and the gold-salt trade." }
+        ],
+        mnemonic: "🧠 \"NIG-er\" the river flows through NIG-eria and NIG-er — the name connects them all.",
+        tags: ['River', 'West Africa', 'Sahel'],
+        mapQuery: 'Niger+River+Africa'
+      },
+      {
+        title: 'Mount Kilimanjaro',
+        facts: [
+          { label: 'Key Fact', text: "Mount Kilimanjaro in Tanzania is the tallest mountain in Africa at 19,341 feet (5,895 m). It's also the tallest free-standing mountain in the world." },
+          { label: 'Geography', text: "Kilimanjaro is actually a dormant stratovolcano with three cones: Kibo (the tallest), Mawenzi, and Shira. Its glaciers are rapidly shrinking due to climate change." },
+          { label: 'Culture', text: "The Chagga people have lived on Kilimanjaro's lower slopes for centuries, farming coffee and bananas. The mountain's name may come from Swahili — 'kilima' means hill." }
+        ],
+        mnemonic: "🧠 Kilimanjaro is in Tanzania — both have 'a' as their most common vowel. Tallest in Africa, tallest freestanding on Earth.",
+        tags: ['Mountain', 'Tanzania', 'East Africa', 'Volcano'],
+        mapQuery: 'Mount+Kilimanjaro+Tanzania'
+      },
+      {
+        title: 'Somalia',
+        facts: [
+          { label: 'Key Fact', text: "Somalia is located in the Horn of Africa, east of Ethiopia, with a long coastline along the Indian Ocean and Gulf of Aden. Its capital is Mogadishu." },
+          { label: 'Politics', text: "Somalia has faced decades of civil war and instability. Al-Shabaab is a militant group that has carried out attacks both inside Somalia and in neighboring Kenya." },
+          { label: 'Geography', text: "Somalia has the longest coastline of any mainland African country. Piracy off its coast became a major international concern in the 2000s and 2010s." }
+        ],
+        tags: ['Horn of Africa', 'Conflict', 'Indian Ocean'],
+        mapQuery: 'Somalia+Horn+of+Africa'
+      },
+      {
+        title: 'Lake Turkana',
+        facts: [
+          { label: 'Key Fact', text: "Lake Turkana, in Kenya's Great Rift Valley, is the world's largest permanent desert lake and the largest alkaline lake. It was formerly called Lake Rudolf." },
+          { label: 'Science', text: "The lake's shores are famous for fossil discoveries — some of the oldest known human ancestor remains were found here, earning it the nickname 'Cradle of Mankind.'" },
+          { label: 'Geography', text: "It sits in a hot, arid landscape in northern Kenya, extending slightly into Ethiopia. The Omo River is its main water source." }
+        ],
+        tags: ['Lake', 'Kenya', 'Rift Valley', 'Fossils'],
+        mapQuery: 'Lake+Turkana+Kenya'
+      },
+      {
+        title: 'The Sahel',
+        facts: [
+          { label: 'Key Fact', text: "The Sahel is a semi-arid region stretching across Africa just south of the Sahara Desert, from Senegal in the west to Eritrea in the east — like a belt across the continent." },
+          { label: 'Climate', text: "It's a transition zone between the Sahara to the north and the savannas to the south. Droughts and desertification are constant threats to the people living here." },
+          { label: 'Politics', text: "Several Sahel countries face security challenges including insurgencies. The region includes parts of Mali, Niger, Burkina Faso, Chad, and Sudan." }
+        ],
+        mnemonic: "🧠 Sahel = 'shore' in Arabic. Think of it as the shore of the Sahara — where the desert meets grassland.",
+        tags: ['Region', 'Climate', 'Desertification'],
+        mapQuery: 'Sahel+region+Africa'
+      },
+      {
+        title: 'Congo Rainforests',
+        facts: [
+          { label: 'Key Fact', text: "The Congo Basin rainforest is the second-largest tropical rainforest in the world after the Amazon. It spans across the Democratic Republic of the Congo, Republic of the Congo, Cameroon, and several other countries." },
+          { label: 'Ecology', text: "It's home to gorillas, forest elephants, okapis, and bonobos. The forest acts as a massive carbon sink, absorbing CO₂ and helping regulate global climate." },
+          { label: 'Conflict', text: "The region is rich in 'conflict minerals' — like coltan, tin, and tungsten — which are mined in conflict zones and have funded armed groups in the DRC." }
+        ],
+        tags: ['Rainforest', 'Ecology', 'Conflict Minerals'],
+        mapQuery: 'Congo+Basin+rainforest'
+      }
+    ]
+  },
+  {
+    id: 'asia',
+    name: 'Asia',
+    emoji: '🏯',
+    desc: '8 topics — rivers, cities, islands',
+    topics: [
+      {
+        title: 'The Philippines & Manila',
+        facts: [
+          { label: 'Key Fact', text: "The Philippines is a Southeast Asian archipelago of over 7,600 islands. Its capital is Manila, located on the island of Luzon." },
+          { label: 'Geography', text: "The three main island groups are Luzon (north), Visayas (central), and Mindanao (south). The country sits on the Pacific Ring of Fire, making it prone to typhoons, earthquakes, and volcanic eruptions." },
+          { label: 'Culture', text: "Spanish colonization lasted over 300 years, followed by American rule. Filipino (based on Tagalog) and English are both official languages." }
+        ],
+        tags: ['Archipelago', 'Southeast Asia', 'Ring of Fire'],
+        mapQuery: 'Philippines+Manila+Southeast+Asia'
+      },
+      {
+        title: 'The Yangtze River',
+        facts: [
+          { label: 'Key Fact', text: "The Yangtze is the longest river in China and the longest in Asia — and the third-longest in the world after the Nile and Amazon." },
+          { label: 'Geography', text: "It flows from the Tibetan Plateau east to Shanghai, where it empties into the East China Sea. The Three Gorges Dam on the Yangtze is the world's largest hydroelectric dam." },
+          { label: 'History', text: "The Yangtze historically divided northern and southern China. Major cities along it include Chongqing, Wuhan, Nanjing, and Shanghai." }
+        ],
+        mnemonic: "🧠 Yangtze → longest in China. Shanghai sits at its mouth (both start with 'S-h')... well, Yangtze doesn't, but Shanghai is at the mouth of the Yangtze!",
+        tags: ['River', 'China', 'Longest in Asia'],
+        mapQuery: 'Yangtze+River+China'
+      },
+      {
+        title: 'Bangkok & the Chao Phraya',
+        facts: [
+          { label: 'Key Fact', text: "Bangkok, the capital of Thailand, sits within the delta of the Chao Phraya River. The city's full ceremonial name is the longest place name in the world." },
+          { label: 'Culture', text: "Thailand is the only Southeast Asian country that was never colonized by a European power. It was formerly known as Siam." },
+          { label: 'Geography', text: "The Chao Phraya is Thailand's most important river, often called the 'River of Kings.' Bangkok's famous floating markets and canal networks earned it the nickname 'Venice of the East.'" }
+        ],
+        tags: ['Capital', 'Thailand', 'River Delta'],
+        mapQuery: 'Bangkok+Chao+Phraya+River'
+      },
+      {
+        title: 'Jerusalem',
+        facts: [
+          { label: 'Key Fact', text: "Jerusalem is a city in Israel considered holy to three major world religions: Judaism, Christianity, and Islam." },
+          { label: 'Culture', text: "For Jews, the Western Wall is the holiest site. For Christians, the Church of the Holy Sepulchre marks Jesus's crucifixion site. For Muslims, the Al-Aqsa Mosque and Dome of the Rock are sacred — Jerusalem was the original direction of prayer (qibla) before Mecca." },
+          { label: 'Politics', text: "Jerusalem's status is one of the most contested issues in world politics. Both Israel and Palestine claim it as their capital. The Old City is divided into four quarters: Jewish, Christian, Muslim, and Armenian." }
+        ],
+        tags: ['Holy City', 'Three Religions', 'Israel/Palestine'],
+        mapQuery: 'Jerusalem+Old+City'
+      },
+      {
+        title: 'Borneo',
+        facts: [
+          { label: 'Key Fact', text: "Borneo is the third-largest island in the world, shared by three countries: Indonesia (Kalimantan), Malaysia (Sabah and Sarawak), and the small nation of Brunei." },
+          { label: 'Ecology', text: "Borneo's rainforests are among the oldest in the world — around 130 million years old. They're home to orangutans, pygmy elephants, and the rafflesia (the world's largest flower)." },
+          { label: 'Concerns', text: "Massive deforestation for palm oil plantations threatens Borneo's biodiversity. It's one of the most critical conservation areas on Earth." }
+        ],
+        mnemonic: "🧠 Borneo = 3 countries: BIM → Brunei, Indonesia, Malaysia.",
+        tags: ['Island', 'Three Countries', 'Rainforest'],
+        mapQuery: 'Borneo+island+Southeast+Asia'
+      },
+      {
+        title: 'Istanbul & the Hagia Sophia',
+        facts: [
+          { label: 'Key Fact', text: "Istanbul is the largest city in Turkey. It's home to the Hagia Sophia, originally built as a Christian cathedral in 537 AD, later a mosque, then a museum, and converted back to a mosque in 2020." },
+          { label: 'Geography', text: "Istanbul straddles Europe and Asia, divided by the Bosporus strait. It's the only major city in the world on two continents." },
+          { label: 'History', text: "The city was previously named Constantinople (capital of the Byzantine and later Ottoman Empire) and before that, Byzantium. It controlled the crucial trade route between the Mediterranean and Black Seas." }
+        ],
+        tags: ['Turkey', 'Two Continents', 'Bosporus'],
+        mapQuery: 'Istanbul+Hagia+Sophia+Bosporus'
+      },
+      {
+        title: 'Osaka',
+        facts: [
+          { label: 'Key Fact', text: "Osaka is Japan's third-largest city and the economic hub of the Kansai region. It's known for its street food culture — especially takoyaki (octopus balls) and okonomiyaki (savory pancakes)." },
+          { label: 'History', text: "Osaka Castle, originally built in 1583 by Toyotomi Hideyoshi, is one of Japan's most famous landmarks. The city was historically Japan's commercial capital, nicknamed 'the Nation's Kitchen.'" },
+          { label: 'Modern', text: "Osaka hosted Expo 2025 and is known for the lively Dotonbori entertainment district." }
+        ],
+        tags: ['Japan', 'Food Culture', 'Kansai'],
+        mapQuery: 'Osaka+Japan'
+      },
+      {
+        title: 'Strait of Hormuz',
+        facts: [
+          { label: 'Key Fact', text: "The Strait of Hormuz is a narrow waterway between Iran and Oman that connects the Persian Gulf to the Gulf of Oman and the Arabian Sea. It is the world's most important oil chokepoint." },
+          { label: 'Economics', text: "About 20–25% of the world's oil passes through this strait daily. Any disruption here could spike global oil prices and affect economies worldwide." },
+          { label: 'Politics', text: "The strait has been a flashpoint for military tensions, especially between Iran and the United States. Iran has periodically threatened to close it." }
+        ],
+        tags: ['Strait', 'Oil', 'Chokepoint', 'Middle East'],
+        mapQuery: 'Strait+of+Hormuz'
+      },
+      {
+        title: 'Riyadh',
+        facts: [
+          { label: 'Key Fact', text: "Riyadh is the capital and largest city of Saudi Arabia, located in the center of the Arabian Peninsula on a desert plateau." },
+          { label: 'Modern', text: "Riyadh has transformed from a walled desert town into a modern metropolis. Saudi Arabia's Vision 2030 plan aims to diversify the economy beyond oil." },
+          { label: 'Culture', text: "The Kingdom Centre Tower is Riyadh's most recognizable skyscraper. The city is the political center of the country, while Jeddah serves as the commercial hub and Mecca as the spiritual center." }
+        ],
+        tags: ['Capital', 'Saudi Arabia', 'Desert'],
+        mapQuery: 'Riyadh+Saudi+Arabia'
+      },
+      {
+        title: 'Khyber Pass',
+        facts: [
+          { label: 'Key Fact', text: "The Khyber Pass is a mountain pass in the Hindu Kush range connecting Afghanistan and Pakistan. It's one of the most famous and strategically important passes in history." },
+          { label: 'History', text: "Armies from Alexander the Great to the Mughals to the British have marched through it. It was a critical route along the ancient Silk Road." },
+          { label: 'Geography', text: "The pass is about 53 km long and reaches an elevation of about 1,070 meters at its highest point. The Pakistani city of Peshawar sits at its eastern end." }
+        ],
+        tags: ['Mountain Pass', 'Afghanistan', 'Pakistan', 'Silk Road'],
+        mapQuery: 'Khyber+Pass+Pakistan+Afghanistan'
+      },
+      {
+        title: 'Red River (Asia)',
+        facts: [
+          { label: 'Key Fact', text: "The Red River (Song Hong) flows from China's Yunnan province through northern Vietnam to the Gulf of Tonkin. Its delta is one of the most densely populated regions on Earth." },
+          { label: 'Geography', text: "Hanoi, Vietnam's capital, sits on the Red River. The river gets its name from the reddish-brown sediment it carries." },
+          { label: 'History', text: "The Red River Delta has been the heartland of Vietnamese civilization for thousands of years, sustaining wet-rice agriculture." }
+        ],
+        tags: ['River', 'Vietnam', 'China'],
+        mapQuery: 'Red+River+Vietnam+Hanoi'
+      },
+      {
+        title: 'Kowloon Walled City',
+        facts: [
+          { label: 'Key Fact', text: "Kowloon Walled City was a densely packed, ungoverned settlement in Hong Kong. At its peak it had over 33,000 residents in just 6.4 acres — making it the most densely populated place in history." },
+          { label: 'History', text: "It was demolished in 1993–94 and replaced by a park. The site existed in a legal gray area — neither fully under British Hong Kong's jurisdiction nor China's." },
+          { label: 'Culture', text: "Despite its reputation, the Walled City had functioning businesses, doctors, and a tight-knit community. It became an iconic symbol of ungoverned urban life." }
+        ],
+        tags: ['Hong Kong', 'Urban', 'Historical'],
+        mapQuery: 'Kowloon+Walled+City+Park+Hong+Kong'
+      },
+      {
+        title: 'Kangchenjunga',
+        facts: [
+          { label: 'Key Fact', text: "Kangchenjunga is the third-highest mountain in the world at 8,586 meters, located on the border between Nepal and the Indian state of Sikkim." },
+          { label: 'Culture', text: "The name means 'Five Treasures of Snow' — referring to its five peaks. It is considered sacred by the local Sikkimese people, and climbers traditionally stop just short of the summit out of respect." },
+          { label: 'Geography', text: "Before surveys in the 19th century, Kangchenjunga was thought to be the tallest mountain in the world." }
+        ],
+        tags: ['Mountain', 'Himalayas', 'Nepal', 'India'],
+        mapQuery: 'Kangchenjunga+Nepal+Sikkim'
+      }
+    ]
+  },
+  {
+    id: 'oceania',
+    name: 'Australia & Oceania',
+    emoji: '🦘',
+    desc: '5 topics — reefs, stations, and islands',
+    topics: [
+      {
+        title: 'The Great Barrier Reef',
+        facts: [
+          { label: 'Key Fact', text: "The Great Barrier Reef, off the coast of Queensland, Australia, is the world's largest structure made by living organisms. It stretches over 2,300 km and is visible from space." },
+          { label: 'Ecology', text: "It's actually composed of nearly 3,000 individual reef systems and hundreds of islands. It supports an incredible diversity of marine life including sea turtles, dolphins, and over 1,500 species of fish." },
+          { label: 'Threats', text: "Climate change-driven coral bleaching is the reef's biggest threat. Rising ocean temperatures cause corals to expel their symbiotic algae, turning them white and often killing them." }
+        ],
+        tags: ['Reef', 'Australia', 'Marine', 'UNESCO'],
+        mapQuery: 'Great+Barrier+Reef+Queensland+Australia'
+      },
+      {
+        title: 'Antarctica',
+        facts: [
+          { label: 'Key Fact', text: "Antarctica is Earth's southernmost continent. It has no permanent human population — only research stations. It's the coldest, driest, and windiest continent." },
+          { label: 'Geography', text: "Antarctica contains about 70% of the world's fresh water, locked in its ice sheet. If it all melted, global sea levels would rise by about 58 meters." },
+          { label: 'Politics', text: "The Antarctic Treaty (1959) designates Antarctica for peaceful scientific research. No country owns it, though several have territorial claims." }
+        ],
+        tags: ['Continent', 'Ice', 'Research'],
+        mapQuery: 'Antarctica+continent'
+      },
+      {
+        title: 'New Zealand',
+        facts: [
+          { label: 'Key Fact', text: "New Zealand is the southernmost country of Oceania, located about 2,000 km southeast of Australia. It consists of two main islands: the North Island and the South Island." },
+          { label: 'Culture', text: "The indigenous Māori people arrived around 1300 AD. The Treaty of Waitangi (1840), signed in the Bay of Islands, is considered New Zealand's founding document, establishing British sovereignty while protecting Māori rights — though its interpretation remains debated." },
+          { label: 'Geography', text: "The South Island features the Southern Alps and numerous fjords. The North Island has volcanic and geothermal activity, including geysers at Rotorua." }
+        ],
+        mnemonic: "🧠 Waitangi = New Zealand's founding treaty. 'Wait-angi' — the nation had to 'wait' for its founding moment.",
+        tags: ['Oceania', 'Māori', 'Waitangi', 'Volcanoes'],
+        mapQuery: 'New+Zealand+map'
+      },
+      {
+        title: 'McMurdo Station',
+        facts: [
+          { label: 'Key Fact', text: "McMurdo Station is the largest research station in Antarctica, operated by the United States. It's located on Ross Island on the shore of McMurdo Sound." },
+          { label: 'Life', text: "In summer, it can house over 1,000 residents. It has a harbor, landing strips, a gym, and even a small store. The nearest city is Christchurch, New Zealand — over 3,800 km away." },
+          { label: 'Science', text: "Research at McMurdo covers climate science, biology, geology, and astrophysics. It's the logistical hub for much of American Antarctic research." }
+        ],
+        tags: ['Antarctica', 'Research', 'United States'],
+        mapQuery: 'McMurdo+Station+Antarctica'
+      },
+      {
+        title: 'Micronesia',
+        facts: [
+          { label: 'Key Fact', text: "Micronesia is a subregion of Oceania in the western Pacific, comprising thousands of small islands. The Federated States of Micronesia is a country within this region, but the term also covers Palau, the Marshall Islands, Guam, Kiribati, and Nauru." },
+          { label: 'Geography', text: "The islands are mostly low-lying coral atolls and are severely threatened by rising sea levels due to climate change." },
+          { label: 'History', text: "Various Micronesian islands were controlled by Spain, Germany, Japan, and the United States at different points. Many gained independence in the late 20th century." }
+        ],
+        tags: ['Pacific', 'Islands', 'Climate Change'],
+        mapQuery: 'Micronesia+Pacific+Ocean'
+      }
+    ]
+  },
+  {
+    id: 'europe',
+    name: 'Europe',
+    emoji: '🏰',
+    desc: '9 topics — rivers, cities, peninsulas',
+    topics: [
+      {
+        title: 'The Bosporus',
+        facts: [
+          { label: 'Key Fact', text: "The Bosporus (or Bosphorus) is the strait that divides the European and Asian parts of Turkey, connecting the Black Sea to the Sea of Marmara." },
+          { label: 'Geography', text: "Istanbul sits on both sides of the Bosporus, making it the only major city in the world that spans two continents. The strait is only about 700 meters wide at its narrowest." },
+          { label: 'Strategy', text: "Control of the Bosporus has been fought over for centuries. It's a critical shipping lane — Russia's Black Sea fleet must pass through it to reach the Mediterranean." }
+        ],
+        tags: ['Strait', 'Turkey', 'Two Continents'],
+        mapQuery: 'Bosporus+strait+Istanbul'
+      },
+      {
+        title: 'The Danube River',
+        facts: [
+          { label: 'Key Fact', text: "The Danube is Europe's second-longest river (after the Volga). It flows through or borders ten countries — more than any other river in the world." },
+          { label: 'Geography', text: "Capital cities on the Danube include Vienna (Austria), Bratislava (Slovakia), Budapest (Hungary), and Belgrade (Serbia). It empties into the Black Sea through a large delta in Romania." },
+          { label: 'Culture', text: "Johann Strauss II's famous waltz 'The Blue Danube' made the river a cultural icon. The river has been a major trade route since Roman times." }
+        ],
+        mnemonic: "🧠 Remember the Danube capitals west→east: Very Big Boys Bet. Vienna, Bratislava, Budapest, Belgrade.",
+        tags: ['River', 'Ten Countries', 'Trade Route'],
+        mapQuery: 'Danube+River+Europe'
+      },
+      {
+        title: 'Rome — Trevi Fountain & Colosseum',
+        facts: [
+          { label: 'Key Fact', text: "Rome is the capital of Italy. Among its many tourist attractions are the Trevi Fountain and the Colosseum." },
+          { label: 'History', text: "The Colosseum, built in 80 AD, could seat about 50,000 spectators for gladiatorial contests. The Trevi Fountain, completed in 1762, is the largest Baroque fountain in Rome — tradition says tossing a coin in guarantees your return to the city." },
+          { label: 'Geography', text: "Rome is built on seven hills along the Tiber River. Vatican City, the world's smallest country, is an enclave entirely within Rome." }
+        ],
+        tags: ['Capital', 'Italy', 'Ancient History'],
+        mapQuery: 'Rome+Colosseum+Italy'
+      },
+      {
+        title: 'The Black Sea & Crimea',
+        facts: [
+          { label: 'Key Fact', text: "The Black Sea is a strategically important body of water bordered by six countries: Turkey, Bulgaria, Romania, Ukraine, Russia, and Georgia. Crimea is a peninsula on its northern shore." },
+          { label: 'Politics', text: "Russia annexed Crimea from Ukraine in 2014, an event condemned by most of the international community. This became a precursor to Russia's full-scale invasion of Ukraine in 2022." },
+          { label: 'Geography', text: "The Black Sea connects to the Mediterranean through the Bosporus, Sea of Marmara, and Dardanelles. Its deep waters are nearly devoid of oxygen — one of the world's largest 'dead zones.'" }
+        ],
+        tags: ['Sea', 'Crimea', 'Ukraine', 'Geopolitics'],
+        mapQuery: 'Black+Sea+Crimea'
+      },
+      {
+        title: 'Sicily',
+        facts: [
+          { label: 'Key Fact', text: "Sicily is the largest island by area in the Mediterranean Sea. It belongs to Italy and is separated from the mainland by the narrow Strait of Messina." },
+          { label: 'Geography', text: "Mount Etna on Sicily's east coast is one of the most active volcanoes in the world and the tallest active volcano in Europe." },
+          { label: 'History', text: "Sicily has been ruled by Greeks, Romans, Arabs, Normans, and Spanish over the centuries, giving it a rich cultural mix visible in its architecture and cuisine." }
+        ],
+        tags: ['Island', 'Mediterranean', 'Italy', 'Volcano'],
+        mapQuery: 'Sicily+Italy+Mount+Etna'
+      },
+      {
+        title: 'The Iberian Peninsula',
+        facts: [
+          { label: 'Key Fact', text: "The Iberian Peninsula is home to two countries: Spain and Portugal. It's separated from France by the Pyrenees mountains and from Africa by the Strait of Gibraltar." },
+          { label: 'Geography', text: "It's the westernmost peninsula of mainland Europe. Lisbon, Portugal's capital, is the westernmost capital city on the Iberian Peninsula — and one of the westernmost in continental Europe." },
+          { label: 'History', text: "The peninsula was under Moorish (Islamic) rule for nearly 800 years, which profoundly influenced its architecture, language, and culture." }
+        ],
+        tags: ['Peninsula', 'Spain', 'Portugal'],
+        mapQuery: 'Iberian+Peninsula+Spain+Portugal'
+      },
+      {
+        title: 'Oslo & Akershus Fortress',
+        facts: [
+          { label: 'Key Fact', text: "Oslo is the capital of Norway. The Akershus Fortress, a medieval castle built around 1299, sits on the Oslo waterfront and has served as a military stronghold, royal residence, and prison." },
+          { label: 'Geography', text: "Norway has Europe's longest coastline thanks to its many fjords — deep, narrow inlets carved by glaciers. Bergen was the northernmost member of the medieval Hanseatic League trading network." },
+          { label: 'Language', text: "Norwegian has two written standards: Bokmål ('Book Tongue'), used by most of the population, and Nynorsk ('New Norwegian')." }
+        ],
+        tags: ['Capital', 'Norway', 'Fortress', 'Fjords'],
+        mapQuery: 'Oslo+Akershus+Fortress+Norway'
+      },
+      {
+        title: 'Schengen Area',
+        facts: [
+          { label: 'Key Fact', text: "The Schengen Area is a zone of 29 European countries that have abolished passport control at their mutual borders, allowing free movement of people." },
+          { label: 'Details', text: "It's named after Schengen, a small town in Luxembourg where the original agreement was signed in 1985. Not all EU members are in Schengen (e.g., Ireland), and some non-EU countries are (e.g., Norway, Switzerland)." },
+          { label: 'Significance', text: "It's one of the most tangible achievements of European integration. A single Schengen visa allows visitors to travel across member states without additional border checks." }
+        ],
+        tags: ['Europe', 'Borders', 'EU', 'Travel'],
+        mapQuery: 'Schengen+Area+Europe'
+      },
+      {
+        title: 'Naples & Stromboli',
+        facts: [
+          { label: 'Key Fact', text: "Naples (Napoli) is a major city in southern Italy, sitting on the Bay of Naples near Mount Vesuvius — the volcano that destroyed Pompeii in 79 AD. Naples is considered the birthplace of pizza." },
+          { label: 'Stromboli', text: "Stromboli is a volcanic island north of Sicily in the Aeolian Islands. It's one of the most active volcanoes on Earth and has been erupting nearly continuously for 2,000+ years, earning the nickname 'Lighthouse of the Mediterranean.'" },
+          { label: 'Culture', text: "Naples has a rich and sometimes gritty history — it's a UNESCO World Heritage Site with underground Greek-Roman tunnels, vibrant street life, and deep musical traditions." }
+        ],
+        tags: ['Italy', 'Volcano', 'Pizza', 'Mediterranean'],
+        mapQuery: 'Naples+Stromboli+Italy'
+      },
+      {
+        title: 'Flemish People',
+        facts: [
+          { label: 'Key Fact', text: "The Flemish are the Dutch-speaking population of northern Belgium (Flanders). Belgium is divided between the Flemish north and the French-speaking Wallonia in the south." },
+          { label: 'Culture', text: "Flemish art is world-renowned — Jan van Eyck and Pieter Bruegel were Flemish masters. Brussels, Belgium's capital, is officially bilingual but is largely French-speaking despite being geographically within Flanders." },
+          { label: 'Politics', text: "Linguistic tension between the Flemish and Walloon communities has been a defining feature of Belgian politics for decades." }
+        ],
+        tags: ['Belgium', 'Language', 'Culture'],
+        mapQuery: 'Flanders+Belgium'
+      }
+    ]
+  },
+  {
+    id: 'uscanada',
+    name: 'US & Canada',
+    emoji: '🗽',
+    desc: '12 topics — cities, parks, geology',
+    topics: [
+      {
+        title: 'New Orleans & Mardi Gras',
+        facts: [
+          { label: 'Key Fact', text: "New Orleans is a city in Louisiana known for its Cajun and Creole cuisine and its annual Mardi Gras celebrations — a massive pre-Lenten carnival with parades and music." },
+          { label: 'Culture', text: "The city is the birthplace of jazz music. The French Quarter (Vieux Carré) is its most famous neighborhood. Cajun cuisine features dishes like gumbo, jambalaya, and crawfish boils." },
+          { label: 'Geography', text: "New Orleans sits between the Mississippi River and Lake Pontchartrain, largely below sea level. Hurricane Katrina in 2005 devastated the city when levees failed." }
+        ],
+        tags: ['Louisiana', 'Jazz', 'Cajun', 'Mardi Gras'],
+        mapQuery: 'New+Orleans+Louisiana+French+Quarter'
+      },
+      {
+        title: 'Baffin Island',
+        facts: [
+          { label: 'Key Fact', text: "Baffin Island is the largest island in Canada and the fifth-largest in the world. It's part of the territory of Nunavut in the Canadian Arctic." },
+          { label: 'Geography', text: "The island is mostly above the Arctic Circle and is sparsely populated — Iqaluit, Nunavut's capital, is located on its southeastern coast. It has dramatic fjords, ice caps, and tundra." },
+          { label: 'History', text: "Named after English navigator William Baffin, the island has been home to Inuit peoples for thousands of years." }
+        ],
+        tags: ['Island', 'Canada', 'Arctic', 'Nunavut'],
+        mapQuery: 'Baffin+Island+Canada+Nunavut'
+      },
+      {
+        title: 'California Tectonics',
+        facts: [
+          { label: 'Key Fact', text: "Tectonic plate activity under California is slowly moving Los Angeles closer to San Francisco. The Pacific Plate is sliding northwest relative to the North American Plate along the San Andreas Fault." },
+          { label: 'Science', text: "At the current rate of about 46 mm per year, LA and SF would be next to each other in roughly 15 million years. The San Andreas Fault is a transform boundary — the plates slide past each other horizontally." },
+          { label: 'Hazards', text: "This plate boundary makes California earthquake-prone. The 1906 San Francisco earthquake and 1994 Northridge earthquake were both products of this system." }
+        ],
+        tags: ['Tectonics', 'California', 'Earthquakes', 'San Andreas'],
+        mapQuery: 'San+Andreas+Fault+California'
+      },
+      {
+        title: 'The Great Lakes',
+        facts: [
+          { label: 'Key Fact', text: "The five Great Lakes are Superior, Michigan, Huron, Erie, and Ontario. Lake Superior is the largest freshwater lake in the world by surface area." },
+          { label: 'Geography', text: "Together they hold about 20% of the world's surface fresh water. They form part of the US-Canada border (except Lake Michigan, which is entirely in the US)." },
+          { label: 'Economy', text: "The Great Lakes region is a major industrial and agricultural hub. The St. Lawrence Seaway connects them to the Atlantic Ocean." }
+        ],
+        mnemonic: "🧠 Remember them with HOMES: Huron, Ontario, Michigan, Erie, Superior.",
+        tags: ['Lakes', 'US-Canada Border', 'Fresh Water'],
+        mapQuery: 'Great+Lakes+United+States+Canada'
+      },
+      {
+        title: 'The Rocky Mountains',
+        facts: [
+          { label: 'Key Fact', text: "The Rocky Mountains are the longest mountain system in North America, stretching over 4,800 km from British Columbia, Canada to New Mexico." },
+          { label: 'Geography', text: "The Continental Divide runs along the Rockies — water on the west side flows toward the Pacific; on the east, toward the Atlantic/Gulf of Mexico." },
+          { label: 'Parks', text: "The Rockies contain iconic national parks including Yellowstone, Glacier, Rocky Mountain, and Grand Teton." }
+        ],
+        tags: ['Mountains', 'Continental Divide', 'North America'],
+        mapQuery: 'Rocky+Mountains+North+America'
+      },
+      {
+        title: 'Newfoundland & Labrador',
+        facts: [
+          { label: 'Key Fact', text: "The island of Newfoundland together with the mainland region of Labrador forms the Canadian province of Newfoundland and Labrador. It's Canada's easternmost province." },
+          { label: 'History', text: "L'Anse aux Meadows on Newfoundland's northern tip is the only confirmed Norse (Viking) settlement in North America, dating to around 1000 AD." },
+          { label: 'Geography', text: "The province has its own time zone — Newfoundland Standard Time, which is 30 minutes offset from Atlantic Time (one of only a few half-hour time zones in the world)." }
+        ],
+        tags: ['Canada', 'Island', 'Vikings', 'Province'],
+        mapQuery: 'Newfoundland+Labrador+Canada'
+      },
+      {
+        title: 'Death Valley',
+        facts: [
+          { label: 'Key Fact', text: "Death Valley National Park in California recorded the world's hottest reliably measured air temperature: 134°F (56.7°C) on July 10, 1913." },
+          { label: 'Geography', text: "Badwater Basin in Death Valley is the lowest point in North America at 282 feet (86 m) below sea level. Despite this, it's only 84 miles from Mount Whitney, the tallest peak in the contiguous US." },
+          { label: 'Features', text: "The park features colorful rock formations, sand dunes, salt flats, and the mysterious 'sailing stones' that appear to move across the desert floor on their own." }
+        ],
+        tags: ['National Park', 'California', 'Hottest', 'Desert'],
+        mapQuery: 'Death+Valley+National+Park+California'
+      },
+      {
+        title: 'Cape Cod & Martha\'s Vineyard',
+        facts: [
+          { label: 'Key Fact', text: "Cape Cod is a hook-shaped peninsula in Massachusetts. Martha's Vineyard is an island located just across from it, south of the Cape." },
+          { label: 'Geography', text: "Cape Cod was formed by glacial deposits during the last Ice Age. The Cape Cod Canal separates it from the Massachusetts mainland." },
+          { label: 'Culture', text: "Martha's Vineyard is a popular summer destination known for its gingerbread cottages, lighthouses, and connections to the Kennedy family. The island of Nantucket lies further to the east." }
+        ],
+        tags: ['Massachusetts', 'Peninsula', 'Island'],
+        mapQuery: 'Cape+Cod+Marthas+Vineyard+Massachusetts'
+      },
+      {
+        title: 'Charleston, South Carolina',
+        facts: [
+          { label: 'Key Fact', text: "Charleston is the largest city by population in South Carolina, located on a namesake harbor where the Ashley and Cooper Rivers meet." },
+          { label: 'History', text: "Fort Sumter in Charleston Harbor is where the first shots of the Civil War were fired in 1861. The city was a major port in the Atlantic slave trade." },
+          { label: 'Culture', text: "Charleston is known for its well-preserved architecture, cobblestone streets, and Lowcountry cuisine (she-crab soup, shrimp and grits)." }
+        ],
+        tags: ['South Carolina', 'Harbor', 'Civil War'],
+        mapQuery: 'Charleston+South+Carolina+harbor'
+      },
+      {
+        title: 'Bryce Canyon National Park',
+        facts: [
+          { label: 'Key Fact', text: "Bryce Canyon is a national park in southern Utah famous for its 'hoodoos' — tall, thin spires of rock formed by erosion. It has the largest concentration of hoodoos anywhere on Earth." },
+          { label: 'Geography', text: "Despite its name, Bryce Canyon isn't actually a canyon — it's a series of natural amphitheaters along the edge of the Paunsaugunt Plateau." },
+          { label: 'Science', text: "The rocks are sedimentary, formed from ancient lake and river deposits. Frost wedging — water freezing and expanding in cracks — is the primary force creating the hoodoos." }
+        ],
+        tags: ['National Park', 'Utah', 'Hoodoos', 'Erosion'],
+        mapQuery: 'Bryce+Canyon+National+Park+Utah'
+      },
+      {
+        title: 'Arizona & Phoenix',
+        facts: [
+          { label: 'Key Fact', text: "Arizona is a southwestern US state known for the Grand Canyon, Sonoran Desert, and saguaro cacti. Phoenix, its capital, is the fifth-largest city in the United States." },
+          { label: 'Geography', text: "Phoenix lies in the Valley of the Sun and is one of the hottest large cities in the US. The Salt and Gila Rivers converge nearby." },
+          { label: 'Culture', text: "Arizona has a large Native American population with 22 tribal nations. It's one of two US states (with Hawaii) that don't observe Daylight Saving Time." }
+        ],
+        tags: ['Southwest', 'Desert', 'Grand Canyon'],
+        mapQuery: 'Arizona+Grand+Canyon+Phoenix'
+      },
+      {
+        title: 'Olympic Peninsula',
+        facts: [
+          { label: 'Key Fact', text: "The Olympic Peninsula is in northwestern Washington State, bordered by the Pacific Ocean, Strait of Juan de Fuca, and Puget Sound. Olympic National Park protects its diverse ecosystems." },
+          { label: 'Geography', text: "The Hoh Rain Forest on the peninsula is one of the few temperate rainforests in the US, receiving about 12 feet of rain annually. The Olympic Mountains rise dramatically in the center." },
+          { label: 'Ecology', text: "The peninsula is home to unique species found nowhere else, including the Olympic marmot and Olympic mudminnow — a result of geographic isolation." }
+        ],
+        tags: ['Washington', 'Rainforest', 'National Park'],
+        mapQuery: 'Olympic+Peninsula+Washington+State'
+      },
+      {
+        title: 'Oahu',
+        facts: [
+          { label: 'Key Fact', text: "Oahu is the third-largest Hawaiian island but the most populous, home to about 70% of Hawaii's population. Honolulu, the state capital, is on its southern shore." },
+          { label: 'History', text: "Pearl Harbor, on Oahu's southern coast, was the site of the surprise Japanese attack on December 7, 1941, which brought the United States into World War II." },
+          { label: 'Geography', text: "Waikiki Beach and Diamond Head crater are iconic Oahu landmarks. The North Shore is world-famous for its massive winter surf." }
+        ],
+        tags: ['Hawaii', 'Pearl Harbor', 'Island'],
+        mapQuery: 'Oahu+Hawaii+Pearl+Harbor'
+      },
+      {
+        title: 'Apostle Islands',
+        facts: [
+          { label: 'Key Fact', text: "The Apostle Islands are a group of 22 islands in Lake Superior off the northern tip of Wisconsin. They're a National Lakeshore managed by the National Park Service." },
+          { label: 'Features', text: "The islands are famous for their sea caves, lighthouses, and sandstone formations. In cold winters, the ice caves along the lakeshore become accessible on foot." },
+          { label: 'History', text: "Despite the name, there are 22 islands, not 12. They were named by Jesuit missionaries who miscounted." }
+        ],
+        tags: ['Wisconsin', 'Lake Superior', 'Islands'],
+        mapQuery: 'Apostle+Islands+Wisconsin+Lake+Superior'
+      },
+      {
+        title: 'Arkansas',
+        facts: [
+          { label: 'Key Fact', text: "Arkansas is a southern US state with its capital at Little Rock. Its city of Bentonville is the headquarters of Walmart, the world's largest company by revenue." },
+          { label: 'Geography', text: "Crater of Diamonds State Park is the only publicly accessible diamond mine in the US. Hot Springs National Park in the Ouachita Mountains was the first federal reserve, created before the national park system." },
+          { label: 'History', text: "The Little Rock Nine (1957) was a pivotal moment in the Civil Rights Movement, when nine Black students integrated Central High School under federal military escort." }
+        ],
+        tags: ['South', 'Walmart', 'Diamonds'],
+        mapQuery: 'Arkansas+United+States+Hot+Springs'
+      },
+      {
+        title: 'Hollywood',
+        facts: [
+          { label: 'Key Fact', text: "Hollywood is a neighborhood of Los Angeles, California — the historic center of the American film industry. The iconic Hollywood Sign was originally erected in 1923 as an advertisement for a real estate development." },
+          { label: 'Culture', text: "The Hollywood Walk of Fame has more than 2,700 stars. Major studios like Paramount, Warner Bros., and Universal have their roots here, though most have moved to other LA-area locations." },
+          { label: 'Geography', text: "Hollywood is also a city in Florida (near Fort Lauderdale/Miami), which sometimes causes confusion." }
+        ],
+        tags: ['Los Angeles', 'Film', 'California'],
+        mapQuery: 'Hollywood+Sign+Los+Angeles'
+      },
+      {
+        title: 'Mystic, Connecticut',
+        facts: [
+          { label: 'Key Fact', text: "Mystic is a village in southeastern Connecticut known for Mystic Seaport, one of the largest maritime museums in the world, and the Mystic Aquarium." },
+          { label: 'History', text: "The town was once a major shipbuilding center in the 1800s. The Connecticut River, the longest river named for a New England state, flows through the state (though not through Mystic itself)." },
+          { label: 'Culture', text: "The movie 'Mystic Pizza' (1988), starring Julia Roberts, was set and partly filmed here." }
+        ],
+        tags: ['Connecticut', 'Maritime', 'New England'],
+        mapQuery: 'Mystic+Connecticut+Seaport'
+      }
+    ]
+  },
+  {
+    id: 'latam',
+    name: 'Latin America & Caribbean',
+    emoji: '🌎',
+    desc: '6 topics — glaciers, lakes, islands',
+    topics: [
+      {
+        title: 'Honduras & Tegucigalpa',
+        facts: [
+          { label: 'Key Fact', text: "Honduras is a Central American country that shares borders with El Salvador to the south, Nicaragua to the southeast, and Guatemala to the west. Its capital is Tegucigalpa." },
+          { label: 'Geography', text: "Honduras has coastline on both the Caribbean Sea (north) and a small stretch on the Pacific (south, via the Gulf of Fonseca). The Bay Islands off its northern coast are popular diving destinations." },
+          { label: 'History', text: "The ancient Maya city of Copán is in western Honduras and is a UNESCO World Heritage Site famous for its carved stelae and hieroglyphic stairway." }
+        ],
+        mnemonic: "🧠 Honduras borders: Go East, Nicaragua — Sal(vador) — Guatemala wraps the west.",
+        tags: ['Central America', 'Maya', 'Capital'],
+        mapQuery: 'Honduras+Tegucigalpa+Central+America'
+      },
+      {
+        title: 'Perito Moreno Glacier',
+        facts: [
+          { label: 'Key Fact', text: "The Perito Moreno Glacier is located in Los Glaciares National Park in Patagonia, Argentina. It's one of only a few glaciers in the world that is still advancing rather than retreating." },
+          { label: 'Geography', text: "The glacier is about 30 km long and 5 km wide at its face, with ice walls rising 70 meters above the surface of Lake Argentino. Periodically, the glacier dams a section of the lake, which builds pressure until the ice dam ruptures — a spectacular natural event." },
+          { label: 'Science', text: "It's part of the Southern Patagonian Ice Field, the third-largest reserve of fresh water in the world after Antarctica and Greenland." }
+        ],
+        tags: ['Glacier', 'Argentina', 'Patagonia'],
+        mapQuery: 'Perito+Moreno+Glacier+Argentina'
+      },
+      {
+        title: 'Lake Titicaca',
+        facts: [
+          { label: 'Key Fact', text: "Lake Titicaca is the largest lake in South America by surface area. It straddles the border of Peru and Bolivia in the Andes Mountains at an elevation of about 3,810 meters." },
+          { label: 'Culture', text: "The Uros people live on floating islands they build from totora reeds on the lake. In Inca mythology, the god Viracocha emerged from Lake Titicaca to create the sun, moon, and stars." },
+          { label: 'Geography', text: "It's the highest navigable lake in the world for large vessels. The Isla del Sol (Island of the Sun) on the Bolivian side was sacred to the Incas." }
+        ],
+        tags: ['Lake', 'Peru', 'Bolivia', 'Andes', 'Highest'],
+        mapQuery: 'Lake+Titicaca+Peru+Bolivia'
+      },
+      {
+        title: 'Cuba & Havana',
+        facts: [
+          { label: 'Key Fact', text: "Cuba is the largest island in the Caribbean. Its capital, Havana, is known for its colorful colonial architecture, vintage American cars, and vibrant music scene." },
+          { label: 'Politics', text: "Cuba has been under communist rule since Fidel Castro's revolution in 1959. The US imposed a trade embargo that remains largely in place. Relations briefly thawed under Obama but tightened again." },
+          { label: 'Geography', text: "Cuba is located at the mouth of the Gulf of Mexico, just 90 miles from Key West, Florida. It's the most populous Caribbean island nation." }
+        ],
+        tags: ['Caribbean', 'Island', 'Communist State'],
+        mapQuery: 'Cuba+Havana+Caribbean'
+      },
+      {
+        title: 'Saint Kitts and Nevis',
+        facts: [
+          { label: 'Key Fact', text: "Saint Kitts and Nevis is a two-island nation in the Caribbean — the smallest sovereign state in the Americas by both area and population." },
+          { label: 'History', text: "St. Kitts was the first Caribbean island to be colonized by Europeans (British and French). Brimstone Hill Fortress on St. Kitts is a UNESCO World Heritage Site." },
+          { label: 'Economy', text: "The country runs one of the world's oldest 'citizenship by investment' programs — wealthy individuals can obtain citizenship through economic investment." }
+        ],
+        tags: ['Caribbean', 'Smallest in Americas', 'Island Nation'],
+        mapQuery: 'Saint+Kitts+and+Nevis+Caribbean'
+      },
+      {
+        title: 'Paseo de la Reforma',
+        facts: [
+          { label: 'Key Fact', text: "Paseo de la Reforma is a major avenue in Mexico City, modeled after the grand boulevards of Paris. It was commissioned by Emperor Maximilian I in the 1860s." },
+          { label: 'Landmarks', text: "The avenue features the Angel of Independence (El Ángel), one of Mexico City's most recognizable landmarks. It also passes near Chapultepec Castle and Park." },
+          { label: 'Modern', text: "Today it's the financial heart of Mexico City, lined with skyscrapers, embassies, and cultural institutions. It's a popular route for public celebrations and protests." }
+        ],
+        tags: ['Mexico City', 'Boulevard', 'Landmarks'],
+        mapQuery: 'Paseo+de+la+Reforma+Mexico+City+Angel+Independence'
+      }
+    ]
+  },
+  {
+    id: 'terms',
+    name: 'Key Terms',
+    emoji: '📚',
+    desc: 'Geographic vocabulary to know',
+    topics: [
+      {
+        title: 'Geyser',
+        facts: [
+          { label: 'Definition', text: "A geyser is a hot spring that periodically erupts, shooting a column of hot water and steam into the air. They occur where underground water is heated by magma close to the surface." },
+          { label: 'Examples', text: "Old Faithful in Yellowstone National Park is the most famous geyser in the world. Iceland's Great Geysir is the origin of the English word 'geyser.'" },
+          { label: 'Science', text: "Geysers are extremely rare — only about 1,000 exist worldwide. Most are found in five countries: the US, Iceland, New Zealand, Chile, and Russia." }
+        ],
+        tags: ['Geology', 'Hydrothermal']
+      },
+      {
+        title: 'Escarpment',
+        facts: [
+          { label: 'Definition', text: "An escarpment (or scarp) is a steep slope or long cliff formed by erosion or faulting. It marks the boundary between two relatively flat areas of different elevations." },
+          { label: 'Examples', text: "The Niagara Escarpment runs from New York through Ontario. The Great Escarpment in southern Africa is one of the most prominent in the world." },
+          { label: 'Formation', text: "Escarpments can be created by tectonic faulting (the land on one side drops) or by differential erosion (softer rock wears away faster, leaving a hard-rock cliff face)." }
+        ],
+        tags: ['Geology', 'Landform']
+      },
+      {
+        title: 'Estuary',
+        facts: [
+          { label: 'Definition', text: "An estuary is a partially enclosed coastal body of water where freshwater from rivers mixes with saltwater from the ocean. They're among the most biologically productive ecosystems on Earth." },
+          { label: 'Examples', text: "The Chesapeake Bay is the largest estuary in the US. The Thames estuary in England and the Ganges Delta are also examples." },
+          { label: 'Significance', text: "Estuaries serve as nurseries for many fish and shellfish species. They also filter pollutants and buffer coastlines from storm damage." }
+        ],
+        tags: ['Water', 'Ecology', 'Coastal']
+      },
+      {
+        title: 'Conflict Minerals',
+        facts: [
+          { label: 'Definition', text: "Conflict minerals are natural resources mined in conflict zones and sold to fund armed fighting — most commonly tin, tantalum, tungsten, and gold (the '3TG')." },
+          { label: 'Where', text: "The term is most strongly associated with the eastern Democratic Republic of the Congo, where armed groups have used mining revenue to finance violence for decades." },
+          { label: 'Impact', text: "These minerals end up in everyday electronics — phones, laptops, game consoles. International regulations now require companies to trace their supply chains." }
+        ],
+        tags: ['Resources', 'Congo', 'Ethics']
+      },
+      {
+        title: 'Black Sand Beaches',
+        facts: [
+          { label: 'Definition', text: "Black sand beaches are formed from volcanic minerals — typically basalt fragments. When lava flows meet the ocean, the rapid cooling shatters the rock into fine dark sand." },
+          { label: 'Where', text: "Famous locations include Vik, Iceland; Punalu'u Beach in Hawaii; and beaches in Santorini, Greece, and the Canary Islands." },
+          { label: 'Science', text: "The sand can be extremely hot under direct sunlight due to its dark color absorbing more heat. Green sand beaches (olivine crystals) and red sand beaches (iron-rich cinder) are even rarer volcanic formations." }
+        ],
+        tags: ['Geology', 'Volcanic', 'Coastal']
+      }
+    ]
+  }
+];
+
+// ══════════════════════════════════════════
+//  DATA: Simple Questions
+// ══════════════════════════════════════════
+
+const SIMPLE_QUESTIONS = [
+  { q: "What is the tallest mountain in Africa?", opts: ["Mount Kenya", "Mount Kilimanjaro", "Mount Elgon", "Ras Dashen"], ans: 1, explain: "Mount Kilimanjaro in Tanzania is Africa's tallest at 19,341 ft. It's also the tallest free-standing mountain in the world." },
+  { q: "What is the longest river in China?", opts: ["Yellow River", "Pearl River", "Mekong River", "Yangtze River"], ans: 3, explain: "The Yangtze is the longest river in China and all of Asia, flowing from the Tibetan Plateau to the East China Sea at Shanghai." },
+  { q: "Which strait divides the European and Asian parts of Turkey?", opts: ["Strait of Hormuz", "Strait of Gibraltar", "Bosporus", "Dardanelles"], ans: 2, explain: "The Bosporus divides Istanbul and Turkey between Europe and Asia, connecting the Black Sea to the Sea of Marmara." },
+  { q: "What is the largest island in Canada?", opts: ["Vancouver Island", "Ellesmere Island", "Baffin Island", "Newfoundland"], ans: 2, explain: "Baffin Island, in Nunavut, is Canada's largest island and the fifth-largest in the world." },
+  { q: "Which lake is the largest in South America by area?", opts: ["Lake Maracaibo", "Lake Titicaca", "Lake Poopó", "Lake Buenos Aires"], ans: 1, explain: "Lake Titicaca straddles Peru and Bolivia in the Andes. It's also the highest navigable lake in the world for large vessels." },
+  { q: "What is the capital of Thailand?", opts: ["Hanoi", "Jakarta", "Bangkok", "Kuala Lumpur"], ans: 2, explain: "Bangkok sits within the delta of the Chao Phraya River. Thailand was formerly known as Siam." },
+  { q: "The Great Barrier Reef is located off the coast of which country?", opts: ["Indonesia", "New Zealand", "Philippines", "Australia"], ans: 3, explain: "The Great Barrier Reef, off Queensland, Australia, is the world's largest structure made by living organisms." },
+  { q: "Which island is the largest in the Mediterranean Sea?", opts: ["Sardinia", "Corsica", "Crete", "Sicily"], ans: 3, explain: "Sicily, part of Italy, is the Mediterranean's largest island. Mount Etna, one of the world's most active volcanoes, is located there." },
+  { q: "What is the capital of Cuba?", opts: ["Santiago", "Havana", "Kingston", "San Juan"], ans: 1, explain: "Havana is the capital of Cuba, the largest Caribbean island. It's known for colonial architecture and vintage cars." },
+  { q: "The Iberian Peninsula is home to which two countries?", opts: ["France and Spain", "Spain and Italy", "Spain and Portugal", "Portugal and France"], ans: 2, explain: "Spain and Portugal share the Iberian Peninsula, the westernmost peninsula of mainland Europe." },
+  { q: "Which US state recorded the world's hottest temperature?", opts: ["Arizona", "Nevada", "Texas", "California"], ans: 3, explain: "Death Valley in California recorded 134°F (56.7°C) in 1913, the hottest reliably measured temperature on Earth." },
+  { q: "What is the third-longest river in Africa?", opts: ["Zambezi", "Congo", "Niger", "Orange"], ans: 2, explain: "The Niger River is Africa's third-longest, after the Nile and the Congo. It shares its name with the country Niger." },
+  { q: "The Akershus Fortress is located in which city?", opts: ["Stockholm", "Copenhagen", "Helsinki", "Oslo"], ans: 3, explain: "Akershus Fortress sits on the waterfront in Oslo, Norway's capital. It was built around 1299." },
+  { q: "Borneo is shared by how many countries?", opts: ["Two", "Three", "Four", "One"], ans: 1, explain: "Borneo is shared by three countries: Indonesia (Kalimantan), Malaysia (Sabah & Sarawak), and Brunei." },
+  { q: "Which US peninsula features a temperate rainforest?", opts: ["Florida Peninsula", "Cape Cod", "Olympic Peninsula", "Delmarva Peninsula"], ans: 2, explain: "The Olympic Peninsula in Washington State contains the Hoh Rain Forest, one of the few temperate rainforests in the US." },
+  { q: "What is the capital of Honduras?", opts: ["San Pedro Sula", "Managua", "Tegucigalpa", "Guatemala City"], ans: 2, explain: "Tegucigalpa is Honduras's capital. Honduras borders El Salvador, Nicaragua, and Guatemala." },
+  { q: "The Perito Moreno Glacier is located in which country?", opts: ["Chile", "Argentina", "Peru", "Bolivia"], ans: 1, explain: "Perito Moreno is in Patagonia, Argentina. It's one of the few glaciers in the world still advancing." },
+  { q: "Jerusalem is considered holy to how many major religions?", opts: ["One", "Two", "Three", "Four"], ans: 2, explain: "Jerusalem is holy to Judaism, Christianity, and Islam — three major world religions." },
+  { q: "The longest mountain system in North America is the:", opts: ["Appalachian Mountains", "Sierra Nevada", "Rocky Mountains", "Cascade Range"], ans: 2, explain: "The Rocky Mountains stretch over 4,800 km from British Columbia to New Mexico." },
+  { q: "Which is the southernmost country of Oceania?", opts: ["Fiji", "Tonga", "New Zealand", "Tasmania"], ans: 2, explain: "New Zealand is the southernmost country of Oceania, about 2,000 km southeast of Australia." },
+  { q: "Which body of water is bordered by Crimea?", opts: ["Caspian Sea", "Baltic Sea", "Black Sea", "Adriatic Sea"], ans: 2, explain: "The Black Sea is bordered by Crimea. Russia annexed the peninsula from Ukraine in 2014." },
+  { q: "The Hagia Sophia is located in which city?", opts: ["Athens", "Cairo", "Istanbul", "Rome"], ans: 2, explain: "The Hagia Sophia in Istanbul was built as a cathedral in 537 AD and has served as a mosque, museum, and mosque again." },
+  { q: "Which Hawaiian island contains Pearl Harbor?", opts: ["Maui", "Big Island", "Oahu", "Kauai"], ans: 2, explain: "Pearl Harbor is on Oahu's southern coast. The 1941 Japanese attack there brought the US into World War II." },
+  { q: "Cape Cod is located in which US state?", opts: ["Connecticut", "Maine", "Rhode Island", "Massachusetts"], ans: 3, explain: "Cape Cod is a hook-shaped peninsula in Massachusetts. Martha's Vineyard is located just across from it." },
+  { q: "What is the largest freshwater lake in the world by surface area?", opts: ["Lake Michigan", "Lake Victoria", "Lake Superior", "Lake Baikal"], ans: 2, explain: "Lake Superior is the largest freshwater lake in the world by surface area, one of the five Great Lakes." }
+];
+
+// ══════════════════════════════════════════
+//  DATA: Complex Questions (multi-clue paragraph style)
+// ══════════════════════════════════════════
+
+const COMPLEX_QUESTIONS = [
+  {
+    q: "This river is Africa's third-longest, after the Nile and the Congo. It flows through Guinea, Mali, and a country with which it shares its name, before emptying into the Gulf of Guinea through a vast delta in the most populous African country. Name this West African river whose Inner Delta near Timbuktu creates one of the continent's largest wetlands.",
+    answer: "Niger River",
+    hints: ["Third-longest in Africa", "Shares name with a country", "Delta in Nigeria", "Near Timbuktu"]
+  },
+  {
+    q: "This city's Chao Phraya River earned it the nickname 'Venice of the East' for its canal networks. Located in a country formerly known as Siam — the only Southeast Asian nation never colonized by Europeans — this city's full ceremonial name is the longest place name in the world. Name this capital of Thailand.",
+    answer: "Bangkok",
+    hints: ["Chao Phraya River", "Venice of the East", "Country formerly called Siam", "Capital of Thailand"]
+  },
+  {
+    q: "This body of water is strategically important because Russia's Black Sea fleet must pass through the strait at its southwestern end to reach the Mediterranean. Six countries border it, and a peninsula on its northern shore was annexed by Russia in 2014 in a move condemned internationally. Name this sea bordered by Turkey, Bulgaria, Romania, Ukraine, Russia, and Georgia.",
+    answer: "Black Sea",
+    hints: ["Russia's fleet uses it", "Peninsula annexed in 2014", "Six bordering countries", "Connected to Mediterranean via Bosporus"]
+  },
+  {
+    q: "This national park in California holds the record for the world's highest reliably measured air temperature, recorded in 1913. Its Badwater Basin is the lowest point in North America at 282 feet below sea level, yet it sits only 84 miles from Mount Whitney, the tallest peak in the contiguous United States. Name this park known for its extreme heat, salt flats, and sailing stones.",
+    answer: "Death Valley National Park",
+    hints: ["World's hottest temperature", "Lowest point in North America", "Near Mount Whitney", "California desert park"]
+  },
+  {
+    q: "This island is shared by three countries — Indonesia controls its southern portion known as Kalimantan, while its northern coast is divided between Malaysia's states of Sabah and Sarawak and the small oil-rich nation of Brunei. It hosts some of the oldest rainforests on Earth and is home to the endangered orangutan. Name this third-largest island in the world.",
+    answer: "Borneo",
+    hints: ["Three countries share it", "Indonesia calls its part Kalimantan", "Brunei is on it", "Home to orangutans"]
+  },
+  {
+    q: "At about 3,810 meters above sea level, this body of water is the highest navigable lake for large vessels in the world. The Uros people live on floating islands made of totora reeds on its surface. Straddling the border between Peru and Bolivia, it was sacred in Inca mythology — legend says the god Viracocha emerged from it to create the sun and moon. Name this largest lake in South America.",
+    answer: "Lake Titicaca",
+    hints: ["Highest navigable lake", "Floating reed islands", "Peru-Bolivia border", "Sacred to the Incas"]
+  },
+  {
+    q: "This structure was originally built as a Christian cathedral in 537 AD, later converted into a mosque after the Ottoman conquest, turned into a museum in 1934, and reconverted to a mosque in 2020. It sits in a city that straddles two continents, divided by the Bosporus strait. Name this architectural icon in Istanbul, Turkey.",
+    answer: "Hagia Sophia",
+    hints: ["Built as cathedral in 537", "Later a mosque, then museum", "Reconverted to mosque in 2020", "In Istanbul"]
+  },
+  {
+    q: "The HOMES mnemonic helps students remember the five members of this group: Huron, Ontario, Michigan, Erie, and the largest by surface area. Together they contain about 20% of the world's surface fresh water. All but one form part of the US-Canada border. Name this group of freshwater bodies in the upper Midwest, the largest of which is the biggest freshwater lake on Earth.",
+    answer: "The Great Lakes (largest: Lake Superior)",
+    hints: ["HOMES mnemonic", "20% of world's surface fresh water", "US-Canada border", "Largest is Superior"]
+  },
+  {
+    q: "This narrow waterway is the world's most important oil chokepoint — about 20-25% of the world's oil passes through it daily. It connects the Persian Gulf to the Gulf of Oman, squeezed between Iran to the north and Oman to the south. Name this strait that has been a frequent flashpoint for military tensions in the Middle East.",
+    answer: "Strait of Hormuz",
+    hints: ["World's most important oil chokepoint", "Connects Persian Gulf to Gulf of Oman", "Between Iran and Oman", "Military tensions flashpoint"]
+  },
+  {
+    q: "This semi-arid region stretches like a belt across Africa from Senegal in the west to Eritrea in the east, forming a transition zone between the Sahara to the north and the savannas to the south. Its name comes from the Arabic word for 'shore.' Countries within it include Mali, Niger, Burkina Faso, and Chad. Name this drought-prone region often described as the edge of the Sahara.",
+    answer: "The Sahel",
+    hints: ["Belt across Africa south of Sahara", "Name means 'shore' in Arabic", "Transition zone to savanna", "Includes Mali, Niger, Chad"]
+  },
+  {
+    q: "This group of 22 islands in Lake Superior (despite their name suggesting a much smaller number) is a National Lakeshore off the northern tip of Wisconsin. They are famous for their sandstone sea caves, historic lighthouses, and ice caves that form in cold winters. Name these islands whose Jesuit missionary namers apparently miscounted.",
+    answer: "Apostle Islands",
+    hints: ["22 islands (not 12)", "In Lake Superior", "Off northern Wisconsin", "Famous for sea caves and lighthouses"]
+  },
+  {
+    q: "This zone of 29 European countries has abolished passport control at mutual borders, allowing free movement of people. Named after a small town in Luxembourg where the agreement was signed in 1985, it includes non-EU members like Norway and Switzerland but excludes some EU members like Ireland. Name this border-free travel area.",
+    answer: "Schengen Area",
+    hints: ["29 European countries", "No passport control at borders", "Named after Luxembourg town", "Signed in 1985"]
+  }
+];
+
+// ══════════════════════════════════════════
+//  DATA: Buzzer Questions (progressive reveal)
+// ══════════════════════════════════════════
+
+const BUZZER_QUESTIONS = [
+  {
+    clues: [
+      "This dormant stratovolcano has three cones: Kibo, Mawenzi, and Shira.",
+      "The Chagga people have farmed coffee and bananas on its lower slopes for centuries.",
+      "Its glaciers are rapidly shrinking due to climate change.",
+      "It's the tallest free-standing mountain in the world.",
+      "Located in Tanzania, it is the tallest mountain on the African continent."
+    ],
+    answer: "Mount Kilimanjaro"
+  },
+  {
+    clues: [
+      "This city was historically Japan's commercial capital, nicknamed 'the Nation's Kitchen.'",
+      "Its famous castle was originally built in 1583 by Toyotomi Hideyoshi.",
+      "It hosted Expo 2025 and is known for the lively Dotonbori district.",
+      "Takoyaki and okonomiyaki are signature dishes of this city.",
+      "It is the third-largest city in Japan, the economic hub of the Kansai region."
+    ],
+    answer: "Osaka"
+  },
+  {
+    clues: [
+      "This feature connects the Persian Gulf to the Gulf of Oman and the Arabian Sea.",
+      "Iran has periodically threatened to close this chokepoint.",
+      "It is squeezed between Iran to the north and Oman to the south.",
+      "About 20-25% of the world's oil passes through it daily.",
+      "Name this narrow waterway, the world's most important oil chokepoint."
+    ],
+    answer: "Strait of Hormuz"
+  },
+  {
+    clues: [
+      "This city was modeled on European capitals and features a boulevard commissioned by Emperor Maximilian I in the 1860s.",
+      "The Angel of Independence, or El Ángel, is one of its most recognizable landmarks.",
+      "Chapultepec Castle and Park can be found near its most famous avenue.",
+      "This avenue — the Paseo de la Reforma — is lined with skyscrapers and embassies.",
+      "Name this capital city where the Paseo de la Reforma is located."
+    ],
+    answer: "Mexico City"
+  },
+  {
+    clues: [
+      "This river flows through or borders more countries than any other river in the world — ten in total.",
+      "Johann Strauss II composed a famous waltz named for this river.",
+      "It empties into the Black Sea through a large delta in Romania.",
+      "Capital cities along it include Vienna, Bratislava, Budapest, and Belgrade.",
+      "Name this second-longest river in Europe."
+    ],
+    answer: "Danube River"
+  },
+  {
+    clues: [
+      "This island is the fifth-largest in the world and part of the territory of Nunavut.",
+      "Its southeastern coast is home to Iqaluit, a territorial capital.",
+      "Named after an English navigator, it has been home to Inuit peoples for thousands of years.",
+      "It features dramatic fjords, ice caps, and tundra, mostly above the Arctic Circle.",
+      "Name this largest island in Canada."
+    ],
+    answer: "Baffin Island"
+  },
+  {
+    clues: [
+      "This country in the Horn of Africa has the longest coastline of any mainland African country.",
+      "Al-Shabaab is a militant group based in this country.",
+      "Piracy off its coast became a major international concern in the 2000s.",
+      "It lies east of Ethiopia, with coastline on the Indian Ocean and Gulf of Aden.",
+      "Name this country governed from Mogadishu."
+    ],
+    answer: "Somalia"
+  },
+  {
+    clues: [
+      "This site was demolished in 1993-94 and exists today as a park in Hong Kong.",
+      "It existed in a legal gray area, not fully under British or Chinese jurisdiction.",
+      "At its peak, over 33,000 people lived in just 6.4 acres.",
+      "Despite its reputation, it had functioning businesses and a tight-knit community.",
+      "Name this once most densely populated place in history."
+    ],
+    answer: "Kowloon Walled City"
+  },
+  {
+    clues: [
+      "The Treaty of Waitangi (1840) is this country's founding document.",
+      "Its South Island features the Southern Alps and numerous fjords.",
+      "The indigenous Māori people arrived here around 1300 AD.",
+      "Located about 2,000 km southeast of Australia, it consists of two main islands.",
+      "Name this southernmost country of Oceania."
+    ],
+    answer: "New Zealand"
+  },
+  {
+    clues: [
+      "This glacier is one of only a few in the world that is still advancing.",
+      "Periodically it dams a section of Lake Argentino, which builds pressure until the ice spectacularly ruptures.",
+      "It's part of the Southern Patagonian Ice Field, the third-largest freshwater reserve.",
+      "Located in Los Glaciares National Park, its ice walls rise 70 meters above the water.",
+      "Name this famous glacier in Patagonia, Argentina."
+    ],
+    answer: "Perito Moreno Glacier"
+  },
+  {
+    clues: [
+      "This peninsula is separated from Africa by a narrow strait and from France by a mountain range.",
+      "Moorish (Islamic) rule here lasted nearly 800 years, shaping its architecture and culture.",
+      "Lisbon, on its western coast, is one of the westernmost capitals in continental Europe.",
+      "It is the westernmost peninsula of mainland Europe.",
+      "Name this peninsula that is home to Spain and Portugal."
+    ],
+    answer: "Iberian Peninsula"
+  },
+  {
+    clues: [
+      "This US state contains the headquarters of the world's largest company by revenue in its city of Bentonville.",
+      "Crater of Diamonds State Park here is the only publicly accessible diamond mine in the US.",
+      "The Little Rock Nine in 1957 was a pivotal Civil Rights moment at Central High School.",
+      "Hot Springs National Park is located in its Ouachita Mountains.",
+      "Name this US state with its capital at Little Rock."
+    ],
+    answer: "Arkansas"
+  }
+];
+
+
+// ══════════════════════════════════════════
+//  APP STATE & RENDERING
+// ══════════════════════════════════════════
+
+let state = {
+  tab: 'learn',
+  selectedRegion: null,
+  // Simple quiz
+  simpleIdx: 0,
+  simpleAnswered: null,
+  simpleScore: 0,
+  simpleTotal: 0,
+  simpleHistory: [],
+  simpleQuestions: [],
+  // Complex quiz
+  complexIdx: 0,
+  complexRevealed: false,
+  complexScore: 0,
+  complexTotal: 0,
+  complexHistory: [],
+  complexQuestions: [],
+  // Buzzer
+  buzzerIdx: 0,
+  buzzerClueIdx: 0,
+  buzzerPhase: 'waiting', // waiting, revealing, buzzed, answered, done
+  buzzerTimer: null,
+  buzzerTimeLeft: 100,
+  buzzerScore: 0,
+  buzzerTotal: 0,
+  buzzerHistory: [],
+  buzzerQuestions: [],
+  // Expanded term
+  expandedTerm: null
+};
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function initSimpleQuiz() {
+  state.simpleQuestions = shuffle(SIMPLE_QUESTIONS);
+  state.simpleIdx = 0;
+  state.simpleAnswered = null;
+  state.simpleScore = 0;
+  state.simpleTotal = 0;
+  state.simpleHistory = [];
+}
+
+function initComplexQuiz() {
+  state.complexQuestions = shuffle(COMPLEX_QUESTIONS);
+  state.complexIdx = 0;
+  state.complexRevealed = false;
+  state.complexScore = 0;
+  state.complexTotal = 0;
+  state.complexHistory = [];
+}
+
+function initBuzzerRound() {
+  state.buzzerQuestions = shuffle(BUZZER_QUESTIONS);
+  state.buzzerIdx = 0;
+  state.buzzerClueIdx = 0;
+  state.buzzerPhase = 'waiting';
+  state.buzzerTimeLeft = 100;
+  state.buzzerScore = 0;
+  state.buzzerTotal = 0;
+  state.buzzerHistory = [];
+  clearInterval(state.buzzerTimer);
+}
+
+// Initialize
+initSimpleQuiz();
+initComplexQuiz();
+initBuzzerRound();
+
+// ─── Tab switching ───
+document.getElementById('tabNav').addEventListener('click', e => {
+  if (e.target.tagName !== 'BUTTON') return;
+  const tab = e.target.dataset.tab;
+  state.tab = tab;
+  document.querySelectorAll('.tab-nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  render();
+});
+
+function render() {
+  const main = document.getElementById('mainContent');
+  switch (state.tab) {
+    case 'learn': main.innerHTML = renderLearn(); break;
+    case 'simple': main.innerHTML = renderSimple(); break;
+    case 'complex': main.innerHTML = renderComplex(); break;
+    case 'buzzer': main.innerHTML = renderBuzzer(); break;
+  }
+  attachHandlers();
+}
+
+// ══════════════════════════════════════════
+//  RENDER: Learn Tab
+// ══════════════════════════════════════════
+
+function renderLearn() {
+  let html = `<h2 class="section-title">Study Topics</h2>
+    <p class="section-subtitle">Pick a region to explore. Each topic has key facts, memory tricks, and context to help you retain information for the bee.</p>`;
+  
+  html += `<div class="region-grid">`;
+  for (const r of REGIONS) {
+    html += `<div class="region-card ${state.selectedRegion === r.id ? 'active' : ''}" data-region="${r.id}">
+      <span class="emoji">${r.emoji}</span>
+      <h3>${r.name}</h3>
+      <p>${r.desc}</p>
+    </div>`;
+  }
+  html += `</div>`;
+
+  if (state.selectedRegion) {
+    const region = REGIONS.find(r => r.id === state.selectedRegion);
+    if (region.id === 'terms') {
+      html += renderTermsSection(region);
+    } else {
+      for (const topic of region.topics) {
+        html += renderTopicCard(topic);
+      }
+    }
+  }
+  return html;
+}
+
+function renderTermsSection(region) {
+  let html = `<div class="topic-detail"><h2>${region.emoji} Key Geographic Terms</h2>`;
+  for (const topic of region.topics) {
+    const isExpanded = state.expandedTerm === topic.title;
+    html += `<div class="term-chip ${isExpanded ? 'expanded' : ''}" data-term="${topic.title}">
+      <strong>${topic.title}</strong>`;
+    if (isExpanded) {
+      html += `<div class="term-desc">`;
+      for (const f of topic.facts) {
+        html += `<strong>${f.label}:</strong> ${f.text}<br><br>`;
+      }
+      if (topic.tags) html += `<div class="tag-row">${topic.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>`;
+      html += `</div>`;
+    }
+    html += `</div>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+function renderTopicCard(topic) {
+  let html = `<div class="topic-detail">
+    <h2>${topic.title}</h2>`;
+  
+  if (topic.mapQuery) {
+    html += `<iframe class="map-embed" src="https://www.openstreetmap.org/export/embed.html?bbox=${getOSMBbox(topic.mapQuery)}&layer=mapnik" loading="lazy"></iframe>
+    <p class="img-credit">Map: OpenStreetMap contributors</p>`;
+  }
+
+  for (const f of topic.facts) {
+    html += `<div class="fact-card">
+      <h4>${f.label}</h4>
+      <p>${f.text}</p>
+      ${f.extra ? `<p style="margin-top:0.4rem;color:var(--text-muted);font-size:0.88rem;">${f.extra}</p>` : ''}
+    </div>`;
+  }
+
+  if (topic.mnemonic) {
+    html += `<div class="fact-card"><div class="mnemonic">${topic.mnemonic}</div></div>`;
+  }
+
+  if (topic.tags) {
+    html += `<div class="tag-row">${topic.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>`;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+function getOSMBbox(query) {
+  // Rough bounding boxes for common locations
+  const bboxMap = {
+    'Niger+River+Africa': '-5,0,15,20',
+    'Mount+Kilimanjaro+Tanzania': '36.8,-3.5,37.8,-2.5',
+    'Somalia+Horn+of+Africa': '41,0,51,12',
+    'Lake+Turkana+Kenya': '35.5,2,37,4.5',
+    'Sahel+region+Africa': '-18,10,40,20',
+    'Congo+Basin+rainforest': '10,-5,30,5',
+    'Philippines+Manila+Southeast+Asia': '117,5,127,20',
+    'Yangtze+River+China': '90,24,122,36',
+    'Bangkok+Chao+Phraya+River': '100.2,13.5,100.8,14',
+    'Jerusalem+Old+City': '35.1,31.7,35.3,31.85',
+    'Borneo+island+Southeast+Asia': '108,-4,119,7',
+    'Istanbul+Hagia+Sophia+Bosporus': '28.7,40.9,29.3,41.2',
+    'Osaka+Japan': '135.3,34.5,135.7,34.8',
+    'Strait+of+Hormuz': '54,25,58,28',
+    'Riyadh+Saudi+Arabia': '46,24,47.2,25.2',
+    'Khyber+Pass+Pakistan+Afghanistan': '70.5,33.5,71.5,34.5',
+    'Red+River+Vietnam+Hanoi': '103,20,107,23',
+    'Kowloon+Walled+City+Park+Hong+Kong': '114.1,22.3,114.3,22.4',
+    'Kangchenjunga+Nepal+Sikkim': '88,27,88.5,27.8',
+    'Great+Barrier+Reef+Queensland+Australia': '143,-25,153,-10',
+    'Antarctica+continent': '-180,-90,180,-60',
+    'New+Zealand+map': '165,-48,179,-34',
+    'McMurdo+Station+Antarctica': '166,-78,168,-77',
+    'Micronesia+Pacific+Ocean': '135,0,165,15',
+    'Bosporus+strait+Istanbul': '28.8,40.95,29.2,41.2',
+    'Danube+River+Europe': '8,42,30,50',
+    'Rome+Colosseum+Italy': '12.3,41.8,12.6,42',
+    'Black+Sea+Crimea': '27,41,42,47',
+    'Sicily+Italy+Mount+Etna': '12,36,16,39',
+    'Iberian+Peninsula+Spain+Portugal': '-10,36,4,44',
+    'Oslo+Akershus+Fortress+Norway': '10.5,59.85,10.9,59.95',
+    'Schengen+Area+Europe': '-12,35,35,72',
+    'Naples+Stromboli+Italy': '13,38,16,41',
+    'Flanders+Belgium': '2.5,50.5,6,51.5',
+    'New+Orleans+Louisiana+French+Quarter': '-90.2,29.9,-89.9,30.05',
+    'Baffin+Island+Canada+Nunavut': '-80,62,-60,73',
+    'San+Andreas+Fault+California': '-123,33,-115,39',
+    'Great+Lakes+United+States+Canada': '-92,41,-76,49',
+    'Rocky+Mountains+North+America': '-117,35,-105,55',
+    'Newfoundland+Labrador+Canada': '-60,46,-52,52',
+    'Death+Valley+National+Park+California': '-117.6,35.8,-116.2,37',
+    'Cape+Cod+Marthas+Vineyard+Massachusetts': '-71,41,-69.5,42.2',
+    'Charleston+South+Carolina+harbor': '-80.1,32.7,-79.8,32.85',
+    'Bryce+Canyon+National+Park+Utah': '-112.3,37.4,-112,37.7',
+    'Arizona+Grand+Canyon+Phoenix': '-114,31,-109,37',
+    'Olympic+Peninsula+Washington+State': '-125,47,-122,48.5',
+    'Oahu+Hawaii+Pearl+Harbor': '-158.3,21.2,-157.6,21.7',
+    'Apostle+Islands+Wisconsin+Lake+Superior': '-91,46.7,-90,47.1',
+    'Arkansas+United+States+Hot+Springs': '-94.5,33,-89.5,36.5',
+    'Hollywood+Sign+Los+Angeles': '-118.4,34,-118.2,34.15',
+    'Mystic+Connecticut+Seaport': '-72.1,41.3,-71.9,41.4',
+    'Honduras+Tegucigalpa+Central+America': '-89.5,13,-83,16',
+    'Perito+Moreno+Glacier+Argentina': '-73.5,-50.8,-72.5,-50',
+    'Lake+Titicaca+Peru+Bolivia': '-70.5,-16.5,-68.5,-15',
+    'Cuba+Havana+Caribbean': '-85,19.5,-74,23.5',
+    'Saint+Kitts+and+Nevis+Caribbean': '-62.9,17,-62.4,17.5',
+    'Paseo+de+la+Reforma+Mexico+City+Angel+Independence': '-99.2,19.4,-99.1,19.45'
+  };
+  return bboxMap[query] || '-10,35,40,60';
+}
+
+// ══════════════════════════════════════════
+//  RENDER: Simple Quiz
+// ══════════════════════════════════════════
+
+function renderSimple() {
+  const qs = state.simpleQuestions;
+  if (!qs.length) { initSimpleQuiz(); return renderSimple(); }
+
+  if (state.simpleIdx >= qs.length) {
+    return renderQuizComplete('simple');
+  }
+
+  const q = qs[state.simpleIdx];
+  const answered = state.simpleAnswered;
+
+  let html = `<h2 class="section-title">Quick-Fire Quiz</h2>
+    <p class="section-subtitle">Multiple choice — test your recall on the Red Set topics.</p>`;
+
+  html += renderProgressDots(state.simpleHistory, state.simpleIdx, qs.length);
+  html += renderScoreBar(state.simpleScore, state.simpleTotal);
+
+  html += `<div class="question-box">
+    <div class="q-number">Question ${state.simpleIdx + 1} of ${qs.length}</div>
+    <div class="q-text">${q.q}</div>
+    <ul class="options-list">`;
+
+  q.opts.forEach((opt, i) => {
+    let cls = '';
+    if (answered !== null) {
+      cls = 'disabled';
+      if (i === q.ans) cls += ' correct answer-reveal';
+      else if (i === answered && i !== q.ans) cls += ' wrong';
+    }
+    html += `<li class="${cls}" data-opt="${i}">${opt}</li>`;
+  });
+
+  html += `</ul>`;
+  if (answered !== null) {
+    html += `<div class="explanation">${q.explain}</div>
+      <div style="margin-top:1rem;text-align:right;">
+        <button class="btn btn-primary" data-action="simple-next">${state.simpleIdx < qs.length - 1 ? 'Next Question →' : 'See Results'}</button>
+      </div>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+// ══════════════════════════════════════════
+//  RENDER: Complex Quiz
+// ══════════════════════════════════════════
+
+function renderComplex() {
+  const qs = state.complexQuestions;
+  if (!qs.length) { initComplexQuiz(); return renderComplex(); }
+
+  if (state.complexIdx >= qs.length) {
+    return renderQuizComplete('complex');
+  }
+
+  const q = qs[state.complexIdx];
+
+  let html = `<h2 class="section-title">Bee-Style Questions</h2>
+    <p class="section-subtitle">Multi-clue paragraph questions, just like the real tournament. Read carefully — the answer often hides in the details.</p>`;
+
+  html += renderProgressDots(state.complexHistory, state.complexIdx, qs.length);
+  html += renderScoreBar(state.complexScore, state.complexTotal);
+
+  html += `<div class="question-box">
+    <div class="q-number">Question ${state.complexIdx + 1} of ${qs.length}</div>
+    <div class="q-text">${q.q}</div>`;
+
+  if (!state.complexRevealed) {
+    html += `<div style="margin-top:0.5rem;margin-bottom:1rem;">
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.6rem;">Clues to watch for:</p>
+      <div class="tag-row">${q.hints.map(h => `<span class="tag">${h}</span>`).join('')}</div>
+    </div>`;
+    html += `<div class="answer-input">
+      <input type="text" id="complexAnswer" placeholder="Type your answer..." autocomplete="off" />
+      <button class="btn btn-gold" data-action="complex-submit">Submit</button>
+    </div>
+    <div style="margin-top:0.5rem;text-align:center;">
+      <button class="btn btn-outline" data-action="complex-reveal" style="font-size:0.8rem;">Show Answer</button>
+    </div>`;
+  } else {
+    const lastResult = state.complexHistory[state.complexHistory.length - 1];
+    if (lastResult !== undefined) {
+      html += `<div class="result-msg ${lastResult ? 'correct' : 'wrong'}">${lastResult ? '✓ Correct!' : '✗ Not quite.'} The answer is: <strong>${q.answer}</strong></div>`;
+    } else {
+      html += `<div class="result-msg wrong">The answer is: <strong>${q.answer}</strong></div>`;
+    }
+    html += `<div style="margin-top:1rem;text-align:right;">
+      <button class="btn btn-primary" data-action="complex-next">${state.complexIdx < qs.length - 1 ? 'Next Question →' : 'See Results'}</button>
+    </div>`;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+// ══════════════════════════════════════════
+//  RENDER: Buzzer Mode
+// ══════════════════════════════════════════
+
+function renderBuzzer() {
+  const qs = state.buzzerQuestions;
+  if (!qs.length) { initBuzzerRound(); return renderBuzzer(); }
+
+  if (state.buzzerIdx >= qs.length) {
+    return renderQuizComplete('buzzer');
+  }
+
+  const q = qs[state.buzzerIdx];
+
+  let html = `<h2 class="section-title">Buzzer Round</h2>
+    <p class="section-subtitle">Clues reveal one at a time. Buzz in early for bonus points — but be careful, a wrong answer costs you! Earlier buzz = more points.</p>`;
+
+  html += renderProgressDots(state.buzzerHistory, state.buzzerIdx, qs.length);
+  html += renderScoreBar(state.buzzerScore, state.buzzerTotal);
+
+  html += `<div class="buzzer-box">`;
+
+  // Timer bar
+  const pct = state.buzzerTimeLeft;
+  const timerColor = pct > 60 ? 'green' : pct > 30 ? 'gold' : 'red';
+  html += `<div class="timer-bar"><div class="fill ${timerColor}" style="width:${pct}%"></div></div>`;
+
+  // Clue display
+  html += `<div class="buzzer-clue">`;
+  if (state.buzzerPhase === 'waiting') {
+    html += `<p style="text-align:center;color:var(--text-muted);">Press Start to begin the next question.</p>`;
+  } else {
+    for (let i = 0; i < q.clues.length; i++) {
+      if (i <= state.buzzerClueIdx) {
+        html += `<p class="revealed" style="margin-bottom:0.6rem;">${q.clues[i]}</p>`;
+      }
+    }
+  }
+  html += `</div>`;
+
+  // Controls
+  if (state.buzzerPhase === 'waiting') {
+    html += `<button class="btn btn-gold" data-action="buzzer-start" style="font-size:1rem;padding:0.8rem 2rem;">Start Question</button>`;
+  } else if (state.buzzerPhase === 'revealing') {
+    html += `<button class="buzz-btn" data-action="buzzer-buzz">BUZZ!</button>
+      <p style="margin-top:0.8rem;font-size:0.8rem;color:var(--text-muted);">Press Space or click to buzz in</p>`;
+  } else if (state.buzzerPhase === 'buzzed') {
+    html += `<div class="answer-input">
+      <input type="text" id="buzzerAnswer" placeholder="Your answer..." autocomplete="off" autofocus />
+      <button class="btn btn-gold" data-action="buzzer-submit">Submit</button>
+    </div>
+    <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--text-muted);">You buzzed at clue ${state.buzzerClueIdx + 1} of ${q.clues.length}</p>`;
+  } else if (state.buzzerPhase === 'answered') {
+    const lastResult = state.buzzerHistory[state.buzzerHistory.length - 1];
+    const points = lastResult ? (q.clues.length - state.buzzerClueIdx) * 2 : 0;
+    html += `<div class="result-msg ${lastResult ? 'correct' : 'wrong'}">
+      ${lastResult ? `✓ Correct! +${points} points (buzzed at clue ${state.buzzerClueIdx + 1})` : `✗ Wrong. The answer is: ${q.answer}`}
+    </div>`;
+    // Show remaining clues
+    if (!lastResult) {
+      html += `<div style="margin-top:1rem;text-align:left;font-size:0.85rem;color:var(--text-muted);">`;
+      for (let i = 0; i < q.clues.length; i++) {
+        html += `<p style="margin-bottom:0.4rem;">${q.clues[i]}</p>`;
+      }
+      html += `</div>`;
+    }
+    html += `<div style="margin-top:1rem;">
+      <button class="btn btn-primary" data-action="buzzer-next">${state.buzzerIdx < qs.length - 1 ? 'Next Question →' : 'See Results'}</button>
+    </div>`;
+  } else if (state.buzzerPhase === 'done') {
+    html += `<div class="result-msg wrong">Time's up! The answer was: <strong>${q.answer}</strong></div>`;
+    html += `<div style="margin-top:1rem;text-align:left;font-size:0.85rem;color:var(--text-muted);">`;
+    for (const c of q.clues) html += `<p style="margin-bottom:0.4rem;">${c}</p>`;
+    html += `</div>`;
+    html += `<div style="margin-top:1rem;">
+      <button class="btn btn-primary" data-action="buzzer-next">${state.buzzerIdx < qs.length - 1 ? 'Next Question →' : 'See Results'}</button>
+    </div>`;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+// ══════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════
+
+function renderProgressDots(history, currentIdx, total) {
+  let html = `<div class="progress-dots">`;
+  for (let i = 0; i < total; i++) {
+    let cls = 'dot';
+    if (i < history.length) cls += history[i] ? ' correct' : ' wrong';
+    else if (i === currentIdx) cls += ' current';
+    html += `<div class="${cls}"></div>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+function renderScoreBar(score, total) {
+  return `<div class="score-bar">
+    <span class="score-text">Score: ${score}</span>
+    <span class="score-detail">${total} answered</span>
+  </div>`;
+}
+
+function renderQuizComplete(type) {
+  let score, total, label;
+  if (type === 'simple') { score = state.simpleScore; total = state.simpleTotal; label = 'Quick-Fire Quiz'; }
+  else if (type === 'complex') { score = state.complexScore; total = state.complexTotal; label = 'Bee-Style Questions'; }
+  else { score = state.buzzerScore; total = state.buzzerTotal; label = 'Buzzer Round'; }
+
+  const pct = total > 0 ? Math.round(score / (type === 'buzzer' ? total * 10 : total) * 100) : 0;
+  let msg = pct >= 80 ? "Outstanding! You're ready for the semifinals." : pct >= 60 ? "Good work! Review the topics you missed." : "Keep studying — you'll get there!";
+
+  return `<div class="buzzer-box" style="text-align:center;padding:2.5rem;">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:0.5rem;">${label} Complete</h2>
+    <p style="font-size:2.5rem;font-weight:700;color:var(--gold);margin:1rem 0;">${score} ${type === 'buzzer' ? 'points' : `/ ${total}`}</p>
+    <p style="color:var(--text-muted);margin-bottom:1.5rem;">${msg}</p>
+    <button class="btn btn-gold" data-action="restart-${type}">Try Again (New Order)</button>
+  </div>`;
+}
+
+// ══════════════════════════════════════════
+//  EVENT HANDLERS
+// ══════════════════════════════════════════
+
+function attachHandlers() {
+  // Region selection
+  document.querySelectorAll('.region-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.dataset.region;
+      state.selectedRegion = state.selectedRegion === id ? null : id;
+      state.expandedTerm = null;
+      render();
+    });
+  });
+
+  // Term expansion
+  document.querySelectorAll('.term-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const term = chip.dataset.term;
+      state.expandedTerm = state.expandedTerm === term ? null : term;
+      render();
+    });
+  });
+
+  // Simple quiz options
+  document.querySelectorAll('.options-list li:not(.disabled)').forEach(li => {
+    li.addEventListener('click', () => {
+      if (state.simpleAnswered !== null) return;
+      const idx = parseInt(li.dataset.opt);
+      state.simpleAnswered = idx;
+      const q = state.simpleQuestions[state.simpleIdx];
+      const correct = idx === q.ans;
+      if (correct) state.simpleScore++;
+      state.simpleTotal++;
+      state.simpleHistory.push(correct);
+      render();
+    });
+  });
+
+  // Simple next
+  document.querySelector('[data-action="simple-next"]')?.addEventListener('click', () => {
+    state.simpleIdx++;
+    state.simpleAnswered = null;
+    render();
+  });
+
+  // Complex submit
+  document.querySelector('[data-action="complex-submit"]')?.addEventListener('click', submitComplexAnswer);
+  document.getElementById('complexAnswer')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') submitComplexAnswer();
+  });
+
+  // Complex reveal
+  document.querySelector('[data-action="complex-reveal"]')?.addEventListener('click', () => {
+    state.complexRevealed = true;
+    state.complexTotal++;
+    state.complexHistory.push(false);
+    render();
+  });
+
+  // Complex next
+  document.querySelector('[data-action="complex-next"]')?.addEventListener('click', () => {
+    state.complexIdx++;
+    state.complexRevealed = false;
+    render();
+  });
+
+  // Buzzer controls
+  document.querySelector('[data-action="buzzer-start"]')?.addEventListener('click', startBuzzerQuestion);
+  document.querySelector('[data-action="buzzer-buzz"]')?.addEventListener('click', buzzIn);
+  document.querySelector('[data-action="buzzer-submit"]')?.addEventListener('click', submitBuzzerAnswer);
+  document.getElementById('buzzerAnswer')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') submitBuzzerAnswer();
+  });
+  document.querySelector('[data-action="buzzer-next"]')?.addEventListener('click', () => {
+    state.buzzerIdx++;
+    state.buzzerClueIdx = 0;
+    state.buzzerPhase = 'waiting';
+    state.buzzerTimeLeft = 100;
+    clearInterval(state.buzzerTimer);
+    render();
+  });
+
+  // Restart buttons
+  document.querySelector('[data-action="restart-simple"]')?.addEventListener('click', () => { initSimpleQuiz(); render(); });
+  document.querySelector('[data-action="restart-complex"]')?.addEventListener('click', () => { initComplexQuiz(); render(); });
+  document.querySelector('[data-action="restart-buzzer"]')?.addEventListener('click', () => { initBuzzerRound(); render(); });
+
+  // Focus answer input
+  setTimeout(() => {
+    document.getElementById('buzzerAnswer')?.focus();
+    document.getElementById('complexAnswer')?.focus();
+  }, 50);
+}
+
+function submitComplexAnswer() {
+  const input = document.getElementById('complexAnswer');
+  if (!input) return;
+  const val = input.value.trim();
+  if (!val) return;
+  const q = state.complexQuestions[state.complexIdx];
+  const correct = checkAnswer(val, q.answer);
+  state.complexRevealed = true;
+  state.complexTotal++;
+  if (correct) state.complexScore++;
+  state.complexHistory.push(correct);
+  render();
+}
+
+function startBuzzerQuestion() {
+  state.buzzerPhase = 'revealing';
+  state.buzzerClueIdx = 0;
+  state.buzzerTimeLeft = 100;
+  clearInterval(state.buzzerTimer);
+
+  const q = state.buzzerQuestions[state.buzzerIdx];
+  const totalClues = q.clues.length;
+  const msPerClue = 4000;
+  let elapsed = 0;
+  const totalTime = totalClues * msPerClue;
+
+  render();
+
+  state.buzzerTimer = setInterval(() => {
+    elapsed += 100;
+    state.buzzerTimeLeft = Math.max(0, 100 - (elapsed / totalTime) * 100);
+
+    const newClueIdx = Math.min(Math.floor(elapsed / msPerClue), totalClues - 1);
+    if (newClueIdx !== state.buzzerClueIdx) {
+      state.buzzerClueIdx = newClueIdx;
+      render();
+    }
+
+    // Update timer bar without full re-render
+    const fill = document.querySelector('.timer-bar .fill');
+    if (fill) {
+      fill.style.width = state.buzzerTimeLeft + '%';
+      fill.className = 'fill ' + (state.buzzerTimeLeft > 60 ? 'green' : state.buzzerTimeLeft > 30 ? 'gold' : 'red');
+    }
+
+    if (elapsed >= totalTime + 3000) {
+      clearInterval(state.buzzerTimer);
+      state.buzzerPhase = 'done';
+      state.buzzerTotal++;
+      state.buzzerHistory.push(false);
+      render();
+    }
+  }, 100);
+}
+
+function buzzIn() {
+  if (state.buzzerPhase !== 'revealing') return;
+  clearInterval(state.buzzerTimer);
+  state.buzzerPhase = 'buzzed';
+  render();
+}
+
+function submitBuzzerAnswer() {
+  const input = document.getElementById('buzzerAnswer');
+  if (!input) return;
+  const val = input.value.trim();
+  if (!val) return;
+  const q = state.buzzerQuestions[state.buzzerIdx];
+  const correct = checkAnswer(val, q.answer);
+  state.buzzerPhase = 'answered';
+  state.buzzerTotal++;
+  if (correct) {
+    const points = (q.clues.length - state.buzzerClueIdx) * 2;
+    state.buzzerScore += points;
+  }
+  state.buzzerHistory.push(correct);
+  render();
+}
+
+function checkAnswer(userInput, correctAnswer) {
+  const normalize = s => s.toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+  const u = normalize(userInput);
+  const c = normalize(correctAnswer);
+  
+  // Exact match
+  if (u === c) return true;
+  
+  // One contains the other
+  if (c.includes(u) && u.length > 3) return true;
+  if (u.includes(c)) return true;
+  
+  // Remove common prefixes like "the", "mount", "lake", "river", "strait of"
+  const strip = s => s.replace(/^(the |mount |lake |river |strait of |strait |gulf of )/i, '');
+  if (strip(u) === strip(c)) return true;
+  
+  // Check individual important words
+  const cWords = c.split(' ').filter(w => w.length > 2);
+  const uWords = u.split(' ').filter(w => w.length > 2);
+  const matchCount = cWords.filter(w => uWords.includes(w)).length;
+  if (matchCount >= Math.ceil(cWords.length * 0.6) && matchCount >= 1) return true;
+
+  return false;
+}
+
+// Keyboard shortcut for buzzer
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' && state.tab === 'buzzer' && state.buzzerPhase === 'revealing') {
+    e.preventDefault();
+    buzzIn();
+  }
+});
+
+// Initial render
+render();
+</script>
+</body>
+</html>
