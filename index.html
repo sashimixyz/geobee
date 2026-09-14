@@ -136,7 +136,7 @@ function rLearn(){
     } else {
       for(const t of R.topics){
         h+=`<div class="tb"><h2>${t.title}</h2>`;
-        if(t.bbox){const[x1,y1,x2,y2]=t.bbox.split(',');h+=`<iframe class="me" src="https://www.openstreetmap.org/export/embed.html?bbox=${x1},${y1},${x2},${y2}&layer=mapnik" loading="lazy"></iframe><p class="mc2">Map: OpenStreetMap contributors</p>`;}
+        if(t.bbox){const[x1,y1,x2,y2]=t.bbox.split(',');h+=`<iframe class="me" src="https://www.openstreetmap.org/export/embed.html?bbox=${x1},${y1},${x2},${y2}&layer=mapnik&lang=en" loading="lazy"></iframe><p class="mc2">Map: OpenStreetMap contributors</p>`;}
         for(const f of t.facts) h+=`<div class="fc"><h4>${f.l}</h4><p>${f.t}</p></div>`;
         if(t.mnem) h+=`<div class="fc"><div class="mn">${t.mnem}</div></div>`;
         if(t.tags) h+=`<div class="tgs">${t.tags.map(x=>`<span class="tg">${x}</span>`).join('')}</div>`;
